@@ -1,0 +1,14 @@
+// Single source of truth for site-wide settings.
+export const JUNIPER_URL = 'https://greysoncapitalgroup.junipersquare.com/login?path=/offering/33153';
+export const CONTACT_EMAIL = 'info@greysoncapitalgroup.com';
+// Shows the "preview" banner and the yellow review notes. Turn off for launch.
+export const SHOW_REVIEW_NOTES = process.env.NEXT_PUBLIC_SHOW_REVIEW_NOTES !== 'false';
+
+export const NAV = [
+  { href: '/current-holdings', label: 'Current Holdings' },
+  { href: '/track-record', label: 'Track Record' },
+  { href: '/strategy', label: 'Strategy' },
+  { href: '/about', label: 'About' },
+  { href: '/investors', label: 'Investors' },
+  { href: '/contact', label: 'Contact' },
+];
