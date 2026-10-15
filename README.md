@@ -15,6 +15,6 @@ Greyson Capital Group website. Next.js 14 (App Router), static pages, self-hoste
 - `next.config.mjs`: 301 redirects from the old site's URLs.
 
 ## Before launch
-- Set `NEXT_PUBLIC_SHOW_REVIEW_NOTES=false` in Vercel. That hides the yellow review tags and preview banner, and lets search engines index the site.
+- Set `NEXT_PUBLIC_SHOW_REVIEW_NOTES=false` in Netlify (Site configuration → Environment variables). That hides the yellow review tags and preview banner, and lets search engines index the site.
 - Connect the contact and investor forms to an inbox (they currently show a "preview only" message).
 - Resolve every yellow tag: facts, bios, disclaimer, phone, address, photo rights.
