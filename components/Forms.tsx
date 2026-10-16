@@ -1,13 +1,44 @@
 'use client';
 import { useState } from 'react';
 
-// Forms are fully built but not yet connected to an inbox.
-// Next step: point onSubmit at an API route (e.g. /api/inquiry) once the recipient inbox is confirmed.
-function useNotConnected() {
-  const [sent, setSent] = useState(false);
-  const onSubmit = (e: React.FormEvent) => { e.preventDefault(); setSent(true); };
-  return { sent, onSubmit };
+// Submissions go to Netlify Forms (free tier). Netlify detects the fields from the
+// hidden copies in public/html-forms/, and email notifications are set in the Netlify dashboard.
+type Status = 'idle' | 'sending' | 'sent' | 'error';
+
+function useNetlifyForm(formName: 'investor-inquiry' | 'contact') {
+  const [status, setStatus] = useState<Status>('idle');
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    data.set('form-name', formName);
+    setStatus('sending');
+    try {
+      const file = formName === 'contact' ? 'contact' : 'investor';
+      const res = await fetch(`/html-forms/_${file}-form.html`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setStatus('sent');
+      form.reset();
+    } catch {
+      setStatus('error');
+    }
+  };
+  return { status, onSubmit };
 }
+
+function Result({ status }: { status: Status }) {
+  if (status === 'sent') return <p className="form-msg ok">Thank you. Your message was received, and a principal will follow up directly.</p>;
+  if (status === 'error') return <p className="form-msg">Something went wrong sending your message. Please email info@greysoncapitalgroup.com.</p>;
+  return null;
+}
+
+const Honeypot = () => (
+  <p hidden><label>Leave this empty: <input name="bot-field" tabIndex={-1} autoComplete="off" /></label></p>
+);
 
 function Choice({ name, options }: { name: string; options: string[] }) {
   return (
@@ -20,9 +51,10 @@ function Choice({ name, options }: { name: string; options: string[] }) {
 }
 
 export function InvestorForm() {
-  const { sent, onSubmit } = useNotConnected();
+  const { status, onSubmit } = useNetlifyForm('investor-inquiry');
   return (
-    <form className="form" onSubmit={onSubmit}>
+    <form className="form" name="investor-inquiry" onSubmit={onSubmit}>
+      <Honeypot />
       <label>First name<input className="field" name="firstName" required autoComplete="given-name" /></label>
       <label>Last name<input className="field" name="lastName" required autoComplete="family-name" /></label>
       <label>Email<input className="field" type="email" name="email" required autoComplete="email" /></label>
@@ -33,17 +65,18 @@ export function InvestorForm() {
       <label className="full check"><input type="checkbox" name="accredited" required /> <span>I confirm I am an accredited investor as defined in Rule 501 of Regulation D. <span className="note">Counsel to finalize wording</span></span></label>
       <label className="full check"><input type="checkbox" name="notAnOffer" required /> <span>I understand this is not an offer to sell or a solicitation to buy any security.</span></label>
       <div className="full">
-        <button type="submit" className="btn btn-silver">Submit inquiry</button>
-        {sent && <p className="form-msg">Preview only: this form is not connected to an inbox yet.</p>}
+        <button type="submit" className="btn btn-silver" disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : 'Submit inquiry'}</button>
+        <Result status={status} />
       </div>
     </form>
   );
 }
 
 export function ContactForm() {
-  const { sent, onSubmit } = useNotConnected();
+  const { status, onSubmit } = useNetlifyForm('contact');
   return (
-    <form className="form" onSubmit={onSubmit}>
+    <form className="form" name="contact" onSubmit={onSubmit}>
+      <Honeypot />
       <label>Name<input className="field" name="name" required autoComplete="name" /></label>
       <label>Email<input className="field" type="email" name="email" required autoComplete="email" /></label>
       <label>Phone<input className="field" type="tel" name="phone" autoComplete="tel" /></label>
@@ -51,8 +84,8 @@ export function ContactForm() {
       <label className="full">Topic<Choice name="topic" options={['Investor inquiry', 'Existing investor', 'Brokers / sellers', 'Media', 'General']} /></label>
       <label className="full">Message<textarea className="field tall" name="message" required /></label>
       <div className="full">
-        <button type="submit" className="btn btn-dark">Send message</button> <span className="note" style={{ marginLeft: 12 }}>Recipient inbox + spam protection — confirm</span>
-        {sent && <p className="form-msg">Preview only: this form is not connected to an inbox yet.</p>}
+        <button type="submit" className="btn btn-dark" disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : 'Send message'}</button>
+        <Result status={status} />
       </div>
     </form>
   );

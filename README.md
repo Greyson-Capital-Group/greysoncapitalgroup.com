@@ -16,5 +16,5 @@ Greyson Capital Group website. Next.js 14 (App Router), static pages, self-hoste
 
 ## Before launch
 - Set `NEXT_PUBLIC_SHOW_REVIEW_NOTES=false` in Netlify (Site configuration → Environment variables). That hides the yellow review tags and preview banner, and lets search engines index the site.
-- Connect the contact and investor forms to an inbox (they currently show a "preview only" message).
+- Forms post to Netlify Forms. In Netlify: Forms → enable form detection, then Forms → Notifications → add email notifications to the right inbox.
 - Resolve every yellow tag: facts, bios, disclaimer, phone, address, photo rights.

@@ -1,5 +1,7 @@
 // Single source of truth for site-wide settings.
 export const JUNIPER_URL = 'https://greysoncapitalgroup.junipersquare.com/login?path=/offering/33153';
+// Google Analytics property carried over from the 2022 site.
+export const GA_ID = 'G-XTNYVS6GSY';
 export const CONTACT_EMAIL = 'info@greysoncapitalgroup.com';
 // Shows the "preview" banner and the yellow review notes. Turn off for launch.
 export const SHOW_REVIEW_NOTES = process.env.NEXT_PUBLIC_SHOW_REVIEW_NOTES !== 'false';

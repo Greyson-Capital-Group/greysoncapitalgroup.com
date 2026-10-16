@@ -275,3 +275,4 @@ button.btn{cursor:pointer}
 .form-msg{margin-top:14px;font-size:14px;color:#9a6b00}
 .light-form .radio-row span{color:var(--ink);border-color:#c9cbcf}
 @media (max-width:760px){.split{gap:40px!important}}
+.form-msg.ok{color:#2e7d4f}

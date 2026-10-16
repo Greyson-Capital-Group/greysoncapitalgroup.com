@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<!-- Hidden copy of the investor inquiry form so Netlify Forms can detect its fields at deploy time. The real form is in components/Forms.tsx. -->
+<form name="investor-inquiry" data-netlify="true" netlify-honeypot="bot-field" method="POST">
+  <input type="hidden" name="form-name" value="investor-inquiry" />
+  <input type="hidden" name="bot-field" />
+  <input type="text" name="firstName" />
+  <input type="text" name="lastName" />
+  <input type="email" name="email" />
+  <input type="tel" name="phone" />
+  <input type="text" name="investorType" />
+  <textarea name="notes"></textarea>
+  <input type="checkbox" name="accredited" />
+  <input type="checkbox" name="notAnOffer" />
+</form>
