@@ -1,5 +1,5 @@
 import { InvestorForm } from '@/components/Forms';
-import { JUNIPER_URL } from '@/data/site';
+import { JUNIPER_URL, SCHEDULE_URL } from '@/data/site';
 export const metadata = { title: 'Investors' };
 
 export default function InvestorsPage() {
@@ -9,7 +9,8 @@ export default function InvestorsPage() {
   <div className="crumbs">Home / Investors</div><div className="eyebrow light">For accredited investors</div>
   <h1>Invest alongside an operator.</h1>
   <p className="lede">We work with accredited individuals, family offices and smaller institutions. Start with a short inquiry.</p>
-  <div className="btn-row"><a className="btn btn-silver" href="#inquiry">Start an inquiry</a><a className="btn btn-ghost" href={JUNIPER_URL}>Existing investor login</a></div>
+  <div className="btn-row"><a className="btn btn-silver" href="#inquiry">Accredited Investor Inquiry</a><a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a></div>
+  <p className="secondary-link"><a href={JUNIPER_URL}>Existing investors: log in to Juniper Square →</a></p>
 </div></section>
 
 <section><div className="wrap">
@@ -59,7 +60,7 @@ export default function InvestorsPage() {
   <div className="faq">
     <div><h4>Who can invest?</h4><p>Accredited investors only. We confirm status before sharing offering details.</p></div>
     <div><h4>Is there an offering open now?</h4><p>We do not post offerings on this site. Submit an inquiry and we will tell you directly.</p></div>
-    <div><h4>Where are returns reported?</h4><p>In the investor portal, to investors. Deal-level performance is not published publicly.</p></div>
+    <div><h4>Where are returns reported?</h4><p>In the investor portal, to investors. We do not publish performance for communities we still hold.</p></div>
     <div><h4>What is the minimum investment?</h4><p><span className="note">Justin / counsel to answer or remove</span></p></div>
   </div>
 </div></section>

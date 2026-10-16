@@ -1,0 +1,12 @@
+{
+  "_readme": "Launch switches. false = hidden on the public site (still shown in the preview build inside a yellow 'Hidden at launch' frame). Flip to true only after Justin (and counsel, where noted) sign off.",
+  "um5Public": false,
+  "lifetimeTotal": false,
+  "capitalTotals": false,
+  "irr": false,
+  "woodmere": false,
+  "ridgeway": false,
+  "aliceSprings": false,
+  "latestNews": true,
+  "heroVariant": "A"
+}

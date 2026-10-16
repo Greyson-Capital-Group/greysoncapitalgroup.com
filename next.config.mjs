@@ -13,8 +13,8 @@ const nextConfig = {
       ...sold.map((s) => ({ source: `/properties/${s}`, destination: '/track-record', permanent: true })),
       { source: '/properties/:slug', destination: '/current-holdings', permanent: true },
       { source: '/terms-of-use', destination: '/privacy-policy', permanent: false },
-      { source: '/latest-news', destination: '/about', permanent: true },
-      { source: '/latest-news/:slug', destination: '/about', permanent: true },
+      { source: '/latest-news', destination: '/#latest', permanent: true },
+      { source: '/latest-news/:slug', destination: '/#latest', permanent: true },
     ];
   },
 };

@@ -1,61 +1,120 @@
+import { CommunityCard, CurrentCard } from '@/components/Cards';
+import FilterGrid, { type FilterItem } from '@/components/FilterGrid';
+import { Confirm, Gate } from '@/components/Flags';
+import { aliceSprings, deal, fmtMonth, isVisible, metrics, n, type Deal } from '@/lib/content';
+import { SCHEDULE_URL } from '@/data/site';
+
 export const metadata = { title: 'Current Holdings' };
 
+function Detail({ d, children }: { d: Deal; children?: React.ReactNode }) {
+  return (
+    <div id={d.slug} className="detail">
+      <div>
+        <div className="eyebrow">{d.market}</div><h2 style={{ marginTop: '14px' }}>{d.name}</h2><div className="rule"></div>
+        <p className="lede small">{d.summary} {d.summaryConfirm && <Confirm>Two-sentence public description — Justin to supply</Confirm>}</p>
+        <table className="ledger" style={{ marginTop: '28px' }}><tbody>
+          <tr><td>Units</td><td className="num">{n(d.units)}</td></tr>
+          <tr><td>Status</td><td className="right">Current</td></tr>
+          <tr><td>Acquired</td><td className="right">{fmtMonth(d.acquired)}</td></tr>
+          {d.parts?.map((p) => <tr key={p.name} className="sub"><td>{p.name}</td><td className="num">{p.units}</td></tr>)}
+          {children}
+        </tbody></table>
+      </div>
+      <div className="gal">
+        {d.photos.length
+          ? d.photos.map((p) => <div key={p.src} className="ph32"><img src={p.src} alt={p.alt} loading="lazy" decoding="async" /></div>)
+          : ['Exterior hero', 'Street / entry', 'Amenity', 'Interior'].map((l) => <div key={l} className="ph32"><div className="placeholder"><span>Photo needed<br />{l}</span></div></div>)}
+      </div>
+      {d.photoNote && <p className="detail-note"><Confirm>{d.photoNote}</Confirm></p>}
+    </div>
+  );
+}
+
 export default function CurrentHoldingsPage() {
+  const um5 = deal('um5');
+  const showUm5 = isVisible('um5Public');
+  const items: FilterItem[] = [
+    { id: 'twin-oaks', tags: ['East Memphis'], node: <CurrentCard d={deal('twin-oaks')} /> },
+    { id: 'lakeville', tags: ['Whitehaven'], node: <CurrentCard d={deal('lakeville')} /> },
+    { id: 'greyson-groves', tags: ['East Memphis'], node: <CurrentCard d={deal('greyson-groves')} /> },
+    ...(showUm5
+      ? um5.communities!.map((c) => ({
+          id: c.slug,
+          tags: [c.neighborhood, 'UM5', 'Pending confirmation'],
+          node: <Gate flag="um5Public" label="UM5">{<CommunityCard c={c} acquired={um5.acquired} />}</Gate>,
+        }))
+      : []),
+  ];
+  const chips = ['East Memphis', 'Whitehaven', ...(showUm5 ? ['University District', 'UM5', 'Pending confirmation'] : [])];
+
   return (
     <>
-<section className="page-hero damask"><div className="wrap">
-  <div className="crumbs">Home / Current Holdings</div><div className="eyebrow light">Portfolio · Current</div>
-  <h1>Current holdings.</h1>
-  <p className="lede">Three communities. 571 units. All in Memphis, Tennessee.</p>
-</div></section>
+      <section className="page-hero damask"><div className="wrap">
+        <div className="crumbs">Home / Current Holdings</div><div className="eyebrow light">Portfolio · Current</div>
+        <h1>Current holdings.</h1>
+        <p className="lede">{metrics.heldDeals} holdings. {n(metrics.held)} units. All in Memphis, Tennessee.</p>
+      </div></section>
 
-<section className="proof"><div className="wrap">
-  <div className="item"><strong>571</strong><span>Current units</span></div>
-  <div className="item"><strong>3</strong><span>Communities (Greyson Groves counts as one)</span></div>
-  <div className="item"><strong>Memphis</strong><span>East Memphis · Whitehaven</span></div>
-  <div className="item"><strong>~2,000+</strong><span>Lifetime doors · see Track Record</span></div>
-</div></section>
+      <section className="proof"><div className="wrap">
+        <div className="item"><strong>{n(metrics.held)}</strong><span>Confirmed units held</span></div>
+        <div className="item"><strong>{metrics.heldDeals}</strong><span>Holdings (Greyson Groves counts as one)</span></div>
+        <div className="item"><strong>Memphis</strong><span>East Memphis · Whitehaven</span></div>
+        <div className="item"><Gate flag="um5Public" label="UM5"><strong>{n(metrics.heldAll)}</strong><span>Units held incl. UM5 ({um5.units})</span></Gate></div>
+      </div></section>
 
-<section><div className="wrap">
-  <div className="filters"><span className="on">All current</span><span>East Memphis</span><span>Whitehaven</span><span>Pending confirmation</span></div>
-  <div className="cards"><article className="card "><div className="media"><img src="/img/current_twin-oaks_exterior_01.jpg" alt="Twin Oaks Townhomes exterior at dusk" /><span className="badge ">Current</span></div>
-<div className="body"><div className="market">East Memphis, TN</div><h3>Twin Oaks Townhomes</h3><p>Townhome community in East Memphis. <span className="note">One-liner — Justin to confirm</span></p>
-<div className="facts"><div><strong>253</strong><span>Units</span></div><div><strong><span className="note">Year</span></strong><span>Acquired</span></div></div></div></article><article className="card "><div className="media"><div className="placeholder ">Photo placeholder<br />Lakeville Townhomes<br />Supply owned photo (Apple Photos / Multi-South)</div><span className="badge ">Current</span></div>
-<div className="body"><div className="market">Whitehaven · Memphis, TN</div><h3>Lakeville Townhomes</h3><p>Townhome community in Whitehaven. <span className="note">One-liner — Justin to confirm</span></p>
-<div className="facts"><div><strong>222</strong><span>Units</span></div><div><strong><span className="note">Year</span></strong><span>Acquired</span></div></div></div></article><article className="card"><div className="media duo"><img src="/img/current_chickasaw-greenline_exterior_01.jpg" alt="Chickasaw at the Greenline exterior" /><img src="/img/current_highpoint-greenline_exterior_01.jpg" alt="Highpoint at the Greenline exterior" /><span className="badge">Current</span></div>
-<div className="body"><div className="market">East Memphis, TN</div><h3>Greyson Groves</h3><div><span className="tag">Chickasaw at the Greenline · 32u</span><span className="tag">Highpoint at the Greenline · 64u</span></div>
-<p>Two neighboring communities near the Shelby Farms Greenline, held together. <span className="note">One-liner — confirm</span></p>
-<div className="facts"><div><strong>96</strong><span>Units (32 + 64)</span></div><div><strong><span className="note">Year</span></strong><span>Acquired</span></div></div></div></article></div>
-</div></section>
+      <section><div className="wrap">
+        <FilterGrid chips={chips} items={items} allLabel="All current" />
+      </div></section>
 
-<section className="paper" style={{paddingTop:'24px'}}><div className="wrap">
-  <div id="twin-oaks" style={{display:'grid',gridTemplateColumns:'1fr 1.5fr',gap:'56px',padding:'56px 0',borderTop:'1px solid #d4d6d9',alignItems:'start'}}>
-  <div><div className="eyebrow">East Memphis, TN</div><h2 style={{marginTop:'14px'}}>Twin Oaks Townhomes</h2><div className="rule"></div><p className="lede" style={{fontSize:'17px'}}>Townhome community in East Memphis. <span className="note">Two-sentence public description — Justin to supply (what was bought, what was done)</span></p>
-  <table className="ledger" style={{marginTop:'28px'}}><tr><td>Units</td><td className="num">253</td></tr><tr><td>Status</td><td style={{textAlign:'right'}}>Current</td></tr><tr><td>Acquired</td><td style={{textAlign:'right'}}><span className="note">Year — supply</span></td></tr><tr><td>Management</td><td style={{textAlign:'right'}}><span className="note">Confirm</span></td></tr></table></div>
-  <div className="gal"><div style={{aspectRatio:'3/2',overflow:'hidden'}}><img src="/img/current_twin-oaks_exterior_01.jpg" alt="Twin Oaks exterior" /></div><div style={{aspectRatio:'3/2',overflow:'hidden'}}><img src="/img/current_twin-oaks_entry_02.jpg" alt="Twin Oaks brick entry" /></div><div style={{aspectRatio:'3/2',overflow:'hidden'}}><img src="/img/current_twin-oaks_sign_03.jpg" alt="Twin Oaks monument sign" /></div><div style={{aspectRatio:'3/2',overflow:'hidden'}}><img src="/img/current_twin-oaks_pavilion_04.jpg" alt="Twin Oaks grill pavilion" /></div></div></div>
-  <div id="lakeville" style={{display:'grid',gridTemplateColumns:'1fr 1.5fr',gap:'56px',padding:'56px 0',borderTop:'1px solid #d4d6d9',alignItems:'start'}}>
-  <div><div className="eyebrow">Whitehaven · Memphis, TN</div><h2 style={{marginTop:'14px'}}>Lakeville Townhomes</h2><div className="rule"></div><p className="lede" style={{fontSize:'17px'}}>Townhome community in Whitehaven. <span className="note">Description — supply. Current web photos may be stock; owned photos needed.</span></p>
-  <table className="ledger" style={{marginTop:'28px'}}><tr><td>Units</td><td className="num">222</td></tr><tr><td>Status</td><td style={{textAlign:'right'}}>Current</td></tr><tr><td>Acquired</td><td style={{textAlign:'right'}}><span className="note">Year — supply</span></td></tr><tr><td>Management</td><td style={{textAlign:'right'}}><span className="note">Confirm</span></td></tr></table></div>
-  <div className="gal"><div style={{aspectRatio:'3/2',overflow:'hidden'}}><div className="placeholder ">Photo placeholder<br />Exterior hero</div></div><div style={{aspectRatio:'3/2',overflow:'hidden'}}><div className="placeholder ">Photo placeholder<br />Street / entry</div></div><div style={{aspectRatio:'3/2',overflow:'hidden'}}><div className="placeholder ">Photo placeholder<br />Amenity</div></div><div style={{aspectRatio:'3/2',overflow:'hidden'}}><div className="placeholder ">Photo placeholder<br />Interior</div></div></div></div>
-  <div id="greyson-groves" style={{display:'grid',gridTemplateColumns:'1fr 1.5fr',gap:'56px',padding:'56px 0',borderTop:'1px solid #d4d6d9',alignItems:'start'}}>
-  <div><div className="eyebrow">East Memphis, TN</div><h2 style={{marginTop:'14px'}}>Greyson Groves</h2><div className="rule"></div><p className="lede" style={{fontSize:'17px'}}>Chickasaw at the Greenline (32 units) and Highpoint at the Greenline (64 units). Two adjacent communities held as one. <span className="note">Description — confirm</span></p>
-  <table className="ledger" style={{marginTop:'28px'}}><tr><td>Units</td><td className="num">96</td></tr><tr><td>Status</td><td style={{textAlign:'right'}}>Current</td></tr><tr><td>Acquired</td><td style={{textAlign:'right'}}><span className="note">Year — supply</span></td></tr><tr><td>Management</td><td style={{textAlign:'right'}}><span className="note">Confirm</span></td></tr><tr className="sub"><td>Chickasaw at the Greenline</td><td className="num">32</td></tr><tr className="sub"><td>Highpoint at the Greenline</td><td className="num">64</td></tr></table></div>
-  <div className="gal"><div style={{aspectRatio:'3/2',overflow:'hidden'}}><img src="/img/current_chickasaw-greenline_exterior_01.jpg" alt="Chickasaw at the Greenline" /></div><div style={{aspectRatio:'3/2',overflow:'hidden'}}><img src="/img/current_chickasaw-greenline_exterior_02.jpg" alt="Chickasaw at the Greenline walkway" /></div><div style={{aspectRatio:'3/2',overflow:'hidden'}}><img src="/img/current_highpoint-greenline_exterior_01.jpg" alt="Highpoint at the Greenline" /></div><div style={{aspectRatio:'3/2',overflow:'hidden'}}><img src="/img/current_highpoint-greenline_pool_02.jpg" alt="Highpoint at the Greenline pool" /></div></div></div>
-</div></section>
+      <section className="paper" style={{ paddingTop: '24px' }}><div className="wrap">
+        <Detail d={deal('twin-oaks')} />
+        <Detail d={deal('lakeville')} />
+        <Detail d={deal('greyson-groves')} />
+      </div></section>
 
-<section id="pending"><div className="wrap">
-  <div className="section-head"><div><div className="eyebrow">Pending confirmation</div><h2>Not yet confirmed for publication.</h2></div></div>
-  <p className="lede" style={{marginBottom:'40px'}}>Shown in the mockup only so the layout is complete. Holds back until Justin confirms status, unit count and wording.</p>
-  <div className="cards"><article className="card pending-card light"><div className="media"><img src="/img/pending_um5_exterior_01.jpg" alt="UM5 / University Crossing building exterior" /><span className="badge" style={{background:'#2a2b2e',color:'#f0d27a',borderColor:'#f0d27a'}}>Pending confirmation</span></div>
-<div className="body"><div className="market">Memphis, TN</div><h3>UM5 Portfolio</h3><div><span className="pending">Pending confirmation</span></div><p>Five Memphis buildings (University Crossing). Status, card split and copy pending confirmation.</p>
-<div className="facts"><div><strong>156</strong><span>Units (pending)</span></div><div><strong>—</strong><span>Status TBC</span></div></div></div></article></div>
-</div></section>
+      <Gate flag="um5Public" label="UM5 not yet approved for public view">
+        <section id="um5"><div className="wrap">
+          <div className="detail">
+            <div>
+              <div className="eyebrow">Near the University of Memphis · Memphis, TN</div><h2 style={{ marginTop: '14px' }}>UM5</h2><div className="rule"></div>
+              <p className="lede small">{um5.summary} <Confirm>Description — confirm</Confirm></p>
+              <table className="ledger" style={{ marginTop: '28px' }}><tbody>
+                {um5.communities!.map((c) => <tr key={c.slug} className="sub"><td>{c.name}</td><td className="num">{c.units}</td></tr>)}
+                <tr className="total"><td>Total units</td><td className="num">{um5.units}</td></tr>
+                <tr><td>Acquired</td><td className="right">{fmtMonth(um5.acquired)}</td></tr>
+                <tr><td>Leased as</td><td className="right">University Crossing</td></tr>
+              </tbody></table>
+            </div>
+            <div className="gal">
+              {um5.communities!.filter((c) => c.photo2).slice(0, 4).map((c) => (
+                <div key={c.slug} className="ph32"><img src={c.photo2!.src} alt={c.photo2!.alt} loading="lazy" decoding="async" /></div>
+              ))}
+            </div>
+          </div>
+        </div></section>
+      </Gate>
 
-<section className="cta-band black damask"><div className="wrap">
-  <div className="eyebrow light">Accredited investors</div><h2>Want the operating detail?</h2>
-  <p className="lede">Property-level reporting is shared with investors through the portal, not on this site.</p>
-  <div className="btn-row"><a className="btn btn-silver" href="/investors">Accredited investor inquiry</a></div>
-</div></section>
+      <Gate flag="aliceSprings" label="Justin decides whether this goes live">
+        <section className="dark" id="hospitality"><div className="wrap split">
+          <div>
+            <div className="eyebrow">Campground & hospitality</div><h2 style={{ marginTop: '14px' }}>{aliceSprings.name}</h2><div className="rule"></div>
+            <p className="lede small">{aliceSprings.summary} <Confirm>Wording — confirm</Confirm></p>
+            <table className="ledger on-dark" style={{ marginTop: '28px' }}><tbody>
+              <tr><td>Type</td><td className="right">RV park and campground</td></tr>
+              <tr><td>Location</td><td className="right"><Confirm>Supply</Confirm></td></tr>
+              <tr><td>Sites</td><td className="right"><Confirm>Supply</Confirm></td></tr>
+              <tr><td>Counted in unit totals</td><td className="right">No</td></tr>
+            </tbody></table>
+          </div>
+          <div className="ph32"><div className="placeholder dark"><span>Photo needed<br />Alice Springs RV Park</span></div></div>
+        </div></section>
+      </Gate>
+
+      <section className="cta-band black damask"><div className="wrap">
+        <div className="eyebrow light">Accredited investors</div><h2>Want the operating detail?</h2>
+        <p className="lede">Property-level reporting is shared with investors through the portal, not on this site.</p>
+        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a><a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a></div>
+      </div></section>
     </>
   );
 }

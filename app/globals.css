@@ -276,3 +276,64 @@ button.btn{cursor:pointer}
 .light-form .radio-row span{color:var(--ink);border-color:#c9cbcf}
 @media (max-width:760px){.split{gap:40px!important}}
 .form-msg.ok{color:#2e7d4f}
+
+/* ---------- directive 2026-10-16 additions ---------- */
+.nav .login{border:0;padding:0;color:#9a9da3;font-size:11px}
+.hero h1.headline{font:500 64px/1.04 var(--serif);color:#fff;letter-spacing:-.005em;max-width:640px;margin-top:var(--s3)}
+.hero-sub{margin-top:var(--s3);font-size:19px;color:#c9ccd1;max-width:560px}
+.hero-metrics{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.hero-metrics>div,.hero-metrics .gated{padding:var(--s3) var(--s3) 0 0}
+.hero-metrics>*+*{border-left:1px solid #34363a;padding-left:var(--s3)}
+.hero-metrics span a,.fn{color:inherit;border-bottom:1px dotted currentColor;font-size:.85em;padding:0 2px}
+.secondary-link{margin-top:18px;font-size:14px}
+.secondary-link a{color:#a9acb2;border-bottom:1px solid #55585e;padding-bottom:2px}
+.secondary-link a:hover{color:#fff}
+.cta-band .secondary-link{text-align:center}
+.review-strip{background:#fff9e0;border-bottom:1px solid #e9d88e;padding:10px 0;font-size:14px}
+.review-strip a{border-bottom:1px solid;margin-left:8px}
+/* launch-gated content (preview build only shows the frame) */
+.gated{position:relative;outline:2px dashed #d0a400;outline-offset:6px;background:repeating-linear-gradient(135deg,rgba(240,210,122,.08) 0 10px,transparent 10px 20px)}
+.gated.inline{display:inline-block}
+.gated-label{display:block;font:700 10px/1.3 var(--caps);letter-spacing:.14em;text-transform:uppercase;color:#5a4500;background:#fff3c4;border:1px dashed #b38f00;padding:6px 8px;margin-bottom:10px;width:fit-content}
+.dark .gated-label,.hero .gated-label,.proof .gated-label{background:#2a2b2e;color:#f0d27a;border-color:#f0d27a}
+section>.gated,.gated>section{display:block}
+.gated-fact strong{opacity:.7}
+.cards>.card-cell{display:flex}
+.cards>.card-cell>*{flex:1;display:flex;flex-direction:column}
+.cards>.card-cell>.gated>.card{flex:1}
+.cards>.gated{display:flex;flex-direction:column}
+.filters button{font:600 11px/1 var(--caps);letter-spacing:.16em;text-transform:uppercase;padding:12px 16px;border:1px solid #cfd1d4;color:var(--muted);background:#fff;cursor:pointer}
+.filters button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.filters button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.tag-dark{color:#cfd1d4;border-color:#55585e}
+.placeholder small{font-size:9px;opacity:.8}
+.lede.small{font-size:17px}
+.right{text-align:right}
+.small-print{margin-top:40px;color:#9a9da3;font-size:14px;display:grid;gap:10px}
+.um5-strip{margin-top:28px;display:grid;grid-template-columns:1fr auto auto;gap:32px;align-items:center;background:#fff;border:1px solid #e1e2e4;padding:26px 28px}
+.um5-strip h3{font-size:24px;margin:8px 0 6px}.um5-strip p{color:var(--muted);font-size:15px}
+.um5-total strong{display:block;font:500 40px/1 var(--serif)}.um5-total span{font-size:12px;color:var(--muted)}
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.news-item{border-top:2px solid var(--ink);padding-top:18px}
+.news-item .date{font:600 11px/1 var(--caps);letter-spacing:.18em;text-transform:uppercase;color:var(--silver-dark)}
+.news-item h3{font-size:22px;margin:10px 0 6px}.news-item p{color:var(--muted);font-size:15px}
+.detail{display:grid;grid-template-columns:1fr 1.5fr;gap:56px;padding:56px 0;border-top:1px solid #d4d6d9;align-items:start}
+.detail-note{grid-column:1/-1}
+.ph32{aspect-ratio:3/2;overflow:hidden}
+.ph32>img,.ph32>.placeholder{width:100%;height:100%;object-fit:cover}
+.ledger.on-dark td{border-color:#3a3c40;color:#cfd1d4}
+.methodology sup{font-size:.7em}
+code{font-size:.9em;background:#f1efe6;padding:1px 4px}
+@media (max-width:1080px){.news{grid-template-columns:1fr 1fr}.hero h1.headline{font-size:52px}}
+@media (max-width:760px){
+  .hero h1.headline{font-size:38px}
+  .hero-sub{font-size:17px}
+  .hero-metrics{grid-template-columns:1fr}
+  .hero-metrics>*+*{border-left:0;padding-left:0;border-top:1px solid #34363a}
+  .detail{grid-template-columns:1fr;gap:28px;padding:40px 0}
+  .um5-strip{grid-template-columns:1fr;gap:16px}
+  .news{grid-template-columns:1fr}
+  .filters button{padding:10px 12px}
+}
+.hero .gated-label,.proof .gated-label{font-size:9px;padding:4px 6px;margin-bottom:8px}
+.hero-metrics .gated{outline-offset:2px}

@@ -13,7 +13,7 @@ export default function StrategyPage() {
   <div className="steps">
     <div className="step"><div className="n">01</div><h3>Acquire</h3><p>Buy existing multifamily where condition or operations lag the market.</p><ul><li>Townhome and garden communities</li><li>Markets we know first-hand</li><li>Underwrite to today's rents, not hope</li></ul></div>
     <div className="step"><div className="n">02</div><h3>Improve</h3><p>Put capital where residents notice it and where it holds value.</p><ul><li>Interior renovations</li><li>Exteriors, grounds, amenities</li><li>Leasing, collections, expense control</li></ul></div>
-    <div className="step"><div className="n">03</div><h3>Exit or hold</h3><p>Sell when the business plan is done. Hold when cash flow justifies it.</p><ul><li>Five communities sold, 2021–2022</li><li>Three communities held today</li><li>Decisions made deal by deal</li></ul></div>
+    <div className="step"><div className="n">03</div><h3>Exit or hold</h3><p>Sell when the business plan is done. Hold when cash flow justifies it.</p><ul><li>Three full-cycle exits, 2021–2022</li><li>Three holdings in Memphis today</li><li>Decisions made deal by deal</li></ul></div>
   </div>
   <p style={{marginTop:'40px'}}><span className="note">Bullet copy is direction — Justin to confirm every line</span></p>
 </div></section>

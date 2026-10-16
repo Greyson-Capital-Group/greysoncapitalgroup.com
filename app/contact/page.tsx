@@ -11,9 +11,10 @@ export default function ContactPage() {
   <p className="lede">A person reads every message. Tell us what you need and we will route it.</p>
 </div></section>
 
-<section><div className="wrap split" style={{gridTemplateColumns:'1.3fr 1fr'}}>
+<section id="schedule"><div className="wrap split" style={{gridTemplateColumns:'1.3fr 1fr'}}>
   <div>
-    <div className="eyebrow">Send a message</div>
+    <div className="eyebrow">Send a message or schedule a call</div>
+    <p style={{margin:'12px 0 0'}}>To set up a call with the principals, choose “Schedule a call” and tell us a few times that work. <span className="note">Calendar booking link — Justin to supply</span></p>
     <div className="light-form"><ContactForm /></div>
   </div>
   <div>
@@ -25,7 +26,7 @@ export default function ContactPage() {
 </div></section>
 
 <section className="black damask" style={{padding:'0'}}><div style={{display:'grid',gridTemplateColumns:'1fr 1fr',minHeight:'360px'}}>
-  <div style={{overflow:'hidden'}}><img src="/img/current_highpoint-greenline_exterior_01.jpg" alt="Highpoint at the Greenline" /></div>
+  <div style={{overflow:'hidden'}}><img src="/img/current_highpoint-greenline_exterior_01.jpg" alt="Highpoint at the Greenline" loading="lazy" /></div>
   <div style={{display:'flex',flexDirection:'column',justifyContent:'center',padding:'64px'}}><img src="/img/logo_G_silver.png" alt="" style={{width:'60px'}} /><h2 style={{marginTop:'24px'}}>Memphis communities.<br />Direct lines to the principals.</h2></div>
 </div></section>
     </>

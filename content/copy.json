@@ -1,0 +1,23 @@
+{
+  "_readme": "Site copy kept as data so it can move to WordPress. Lines with confirm:true show a yellow CONFIRM tag in preview.",
+  "hero": {
+    "A": { "headline": "Hands-On Operators Protecting Capital Through Real Execution." },
+    "B": { "headline": "Steady Returns. Protected Capital. Built on Execution." },
+    "sub": "We buy multifamily communities, improve them, and run them closely."
+  },
+  "edge": {
+    "confirm": true,
+    "items": [
+      { "title": "Operator-led", "body": "The principals run the business plan at the property: leasing, collections, capital projects and vendors." },
+      { "title": "Construction know-how", "body": "Renovation scopes and budgets are set by people who have built and managed construction work." },
+      { "title": "Plain reporting", "body": "Investors get the numbers as they are, good or bad, through the Juniper Square portal." }
+    ]
+  },
+  "methodology": "Units are counted once per community, at the count owned. 'Held' is communities Greyson owns today; 'sold' is communities Greyson bought and sold. Communities still pending confirmation are excluded until confirmed. Outdoor hospitality is not counted.",
+  "lifetimeMethodology": "The lifetime total adds communities pending confirmation: UM5 (156 units, held), Woodmere Reserve (200 units, sold) and Woods at Ridgeway (568 units, a prior interest the principals raised capital for and managed).",
+  "news": [
+    { "date": "2025-09", "title": "Greyson acquires Lakeville Townhomes", "body": "222 townhomes in Whitehaven, Memphis." },
+    { "date": "2025-03", "title": "Greyson acquires the UM5 portfolio", "body": "Five communities, 156 units, near the University of Memphis.", "flag": "um5Public" }
+  ],
+  "newsNote": "Add updates as they happen: acquisitions, completed renovation phases, refinances. Dates and wording to confirm."
+}

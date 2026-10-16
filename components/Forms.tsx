@@ -81,7 +81,7 @@ export function ContactForm() {
       <label>Email<input className="field" type="email" name="email" required autoComplete="email" /></label>
       <label>Phone<input className="field" type="tel" name="phone" autoComplete="tel" /></label>
       <label>Company (optional)<input className="field" name="company" autoComplete="organization" /></label>
-      <label className="full">Topic<Choice name="topic" options={['Investor inquiry', 'Existing investor', 'Brokers / sellers', 'Media', 'General']} /></label>
+      <label className="full">Topic<Choice name="topic" options={['Schedule a call', 'Investor inquiry', 'Existing investor', 'Brokers / sellers', 'Media', 'General']} /></label>
       <label className="full">Message<textarea className="field tall" name="message" required /></label>
       <div className="full">
         <button type="submit" className="btn btn-dark" disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : 'Send message'}</button>

@@ -1,0 +1,271 @@
+{
+  "_source": "Locked numbers: Greyson-Track-Record-SHOW_2026-09-21.xlsx (Timothy, Sr Analyst; CIO-confirmed), per Claude Directive 2026-10-16. Do not add figures that are not on that sheet.",
+  "deals": [
+    {
+      "slug": "twin-oaks",
+      "name": "Twin Oaks Townhomes",
+      "status": "current",
+      "units": 253,
+      "acquired": "2019-10",
+      "market": "East Memphis, TN",
+      "neighborhood": "East Memphis",
+      "summary": "Townhome community in East Memphis.",
+      "summaryConfirm": true,
+      "photos": [
+        {
+          "src": "/img/current_twin-oaks_exterior_01.jpg",
+          "alt": "Twin Oaks Townhomes building exterior"
+        },
+        {
+          "src": "/img/current_twin-oaks_entry_02.jpg",
+          "alt": "Brick entry at Twin Oaks Townhomes"
+        },
+        {
+          "src": "/img/current_twin-oaks_sign_03.jpg",
+          "alt": "Twin Oaks Townhomes monument sign"
+        },
+        {
+          "src": "/img/current_twin-oaks_pavilion_04.jpg",
+          "alt": "Grill pavilion at Twin Oaks Townhomes"
+        }
+      ]
+    },
+    {
+      "slug": "greyson-groves",
+      "name": "Greyson Groves",
+      "status": "current",
+      "units": 96,
+      "acquired": "2021-09",
+      "market": "East Memphis, TN",
+      "neighborhood": "East Memphis",
+      "summary": "Two neighboring communities near the Shelby Farms Greenline, held together.",
+      "summaryConfirm": true,
+      "parts": [
+        {
+          "name": "Chickasaw at the Greenline",
+          "units": 32
+        },
+        {
+          "name": "Highpoint at the Greenline",
+          "units": 64
+        }
+      ],
+      "photos": [
+        {
+          "src": "/img/current_chickasaw-greenline_exterior_01.jpg",
+          "alt": "Chickasaw at the Greenline building exterior"
+        },
+        {
+          "src": "/img/current_chickasaw-greenline_exterior_02.jpg",
+          "alt": "Walkway at Chickasaw at the Greenline"
+        },
+        {
+          "src": "/img/current_highpoint-greenline_exterior_01.jpg",
+          "alt": "Highpoint at the Greenline building exterior"
+        },
+        {
+          "src": "/img/current_highpoint-greenline_pool_02.jpg",
+          "alt": "Pool at Highpoint at the Greenline"
+        }
+      ]
+    },
+    {
+      "slug": "lakeville",
+      "name": "Lakeville Townhomes",
+      "status": "current",
+      "units": 222,
+      "acquired": "2025-09",
+      "market": "Whitehaven · Memphis, TN",
+      "neighborhood": "Whitehaven",
+      "summary": "Townhome community in Whitehaven.",
+      "summaryConfirm": true,
+      "photos": [],
+      "photoNote": "Owned or Multi-South photos needed. The photos on the old listing are public scrapes and are not used."
+    },
+    {
+      "slug": "um5",
+      "name": "UM5",
+      "status": "current",
+      "units": 156,
+      "flag": "um5Public",
+      "acquired": "2025-03",
+      "market": "Memphis, TN",
+      "neighborhood": "University District",
+      "summary": "Five apartment communities near the University of Memphis, leased together as University Crossing.",
+      "communities": [
+        {
+          "slug": "brister-place",
+          "name": "Brister Place",
+          "units": 24,
+          "neighborhood": "University District",
+          "summary": "One- and two-bedroom apartments on Brister Street.",
+          "photo": {
+            "src": "/img/um5-brister-place-exterior.jpg",
+            "alt": "Brister Place apartments, two-story building with yellow doors"
+          },
+          "photo2": {
+            "src": "/img/um5-brister-place-interior.jpg",
+            "alt": "Renovated kitchen at Brister Place"
+          }
+        },
+        {
+          "slug": "carnes-manor",
+          "name": "Carnes Manor",
+          "units": 29,
+          "neighborhood": "University District",
+          "summary": "Two-bedroom apartments on Carnes Avenue.",
+          "photo": {
+            "src": "/img/um5-carnes-manor-exterior.jpg",
+            "alt": "Carnes Manor apartments, two-story building with navy trim"
+          },
+          "photo2": {
+            "src": "/img/um5-carnes-manor-interior.jpg",
+            "alt": "Kitchen with plank flooring at Carnes Manor"
+          }
+        },
+        {
+          "slug": "southern-place",
+          "name": "Southern Place",
+          "units": 21,
+          "neighborhood": "University District",
+          "summary": "Two-bedroom apartments on Southern Avenue, home of the University Crossing leasing office.",
+          "photo": {
+            "src": "/img/um5-southern-place-exterior.jpg",
+            "alt": "Southern Place courtyard with blue doors"
+          },
+          "photo2": {
+            "src": "/img/um5-southern-place-leasing-office.jpg",
+            "alt": "University Crossing leasing office at Southern Place"
+          }
+        },
+        {
+          "slug": "university-highlands",
+          "name": "University Highlands",
+          "units": 69,
+          "neighborhood": "University District",
+          "nameNote": "Directive says 'University Heights'; the property and its signage say University Highlands.",
+          "summary": "The largest of the five, mostly two-bedroom apartments.",
+          "photo": {
+            "src": "/img/um5-university-highlands-exterior.jpg",
+            "alt": "University Highlands building with bay windows"
+          },
+          "photo2": {
+            "src": "/img/um5-university-highlands-interior.jpg",
+            "alt": "Renovated kitchen and living room at University Highlands"
+          }
+        },
+        {
+          "slug": "casa-del-rey",
+          "name": "Casa Del Rey",
+          "units": 13,
+          "neighborhood": "University District",
+          "summary": "Two-bedroom apartments on Brister Street, the smallest of the five.",
+          "photo": {
+            "src": "/img/um5-casa-del-rey-entry.jpg",
+            "alt": "Covered breezeway at Casa Del Rey"
+          },
+          "photoNote": "Only owned photo is the breezeway. Exterior hero and interior needed."
+        }
+      ]
+    },
+    {
+      "slug": "clearbrook",
+      "name": "Clearbrook Village",
+      "status": "sold",
+      "units": 144,
+      "acquired": "2018-09",
+      "sold": "2021-08",
+      "market": "Memphis, TN",
+      "photos": [
+        {
+          "src": "/img/clearbrook-village-01.jpg",
+          "alt": "Clearbrook Village apartments, Memphis"
+        }
+      ]
+    },
+    {
+      "slug": "millington-oaks",
+      "name": "Millington Oaks",
+      "status": "sold",
+      "units": 172,
+      "acquired": "2019-06",
+      "sold": "2022-04",
+      "market": "Millington, TN",
+      "marketConfirm": true,
+      "photos": [],
+      "photoNote": "Only a 259px image exists. Supply a larger owned photo."
+    },
+    {
+      "slug": "fl3",
+      "name": "Florida 3 Portfolio",
+      "status": "sold",
+      "units": 251,
+      "acquired": "2019-07",
+      "sold": "2022-08",
+      "market": "Jacksonville area, FL",
+      "marketConfirm": true,
+      "capitalReturnedConfirm": true,
+      "parts": [
+        {
+          "name": "Kings Tree",
+          "units": 63,
+          "confirm": true
+        },
+        {
+          "name": "Park Place",
+          "units": 70,
+          "confirm": true
+        },
+        {
+          "name": "Villas at Cedar Creek",
+          "units": 118,
+          "confirm": true
+        }
+      ],
+      "partsNote": "Kings Tree, Park Place and Villas at Cedar Creek are not named on Timothy's sheet. Justin and Timothy to verify units and dates.",
+      "photos": [
+        {
+          "src": "/img/villas-at-cedar-creek-01.jpg",
+          "alt": "Villas at Cedar Creek, part of the Florida 3 Portfolio"
+        }
+      ]
+    },
+    {
+      "slug": "woodmere",
+      "name": "Woodmere Reserve",
+      "status": "sold",
+      "units": 200,
+      "flag": "woodmere",
+      "sold": "2025-06",
+      "market": "",
+      "marketConfirm": true,
+      "photos": [
+        {
+          "src": "/img/woodmere-reserve-01.jpg",
+          "alt": "Woodmere Reserve apartments"
+        }
+      ],
+      "outcomeConfirm": true
+    },
+    {
+      "slug": "woods-at-ridgeway",
+      "name": "Woods at Ridgeway",
+      "status": "prior",
+      "units": 568,
+      "flag": "ridgeway",
+      "market": "Memphis, TN",
+      "outcomeConfirm": true,
+      "photos": []
+    }
+  ],
+  "aliceSprings": {
+    "flag": "aliceSprings",
+    "name": "Alice Springs RV Park",
+    "type": "Campground & hospitality",
+    "summary": "An RV park and campground operated by the Greyson team. Counted separately from multifamily.",
+    "location": "",
+    "sites": "",
+    "photos": []
+  },
+  "_private": "IRRs, capital totals and the Woodmere/Ridgeway outcome wording are not in this public repo. They load at build time from the GREYSON_PRIVATE_CONTENT environment variable (see content/private.example.json)."
+}
