@@ -11,7 +11,8 @@ import path from 'node:path';
 // out of the public repo. They load at build time from the GREYSON_PRIVATE_CONTENT env var
 // (set in Netlify), or from a local, gitignored content/private.json.
 type Money = { value: number; display: string; label: string; detail?: string; flag?: string };
-type Private = { capital?: Record<'equityRaised' | 'capitalDeployed', Money>; deals?: Record<string, { irr?: number; outcome?: string }> };
+export type Portfolio = { purchasePrice: string; capex: string; equity: string; capitalReturned: string; capitalReturnedTag?: string };
+type Private = { capital?: Record<'equityRaised' | 'capitalDeployed', Money>; deals?: Record<string, { irr?: number; outcome?: string; portfolio?: Portfolio }> };
 function loadPrivate(): Private {
   try {
     if (process.env.GREYSON_PRIVATE_CONTENT) return JSON.parse(process.env.GREYSON_PRIVATE_CONTENT);
@@ -27,18 +28,23 @@ export const hasPrivate = Boolean(priv.capital || priv.deals);
 
 export type Photo = { src: string; alt: string };
 export type Community = {
-  slug: string; name: string; units: number; neighborhood: string; summary: string;
+  slug: string; name: string; units: number; neighborhood: string; summary: string; summaryTag?: string;
   photo?: Photo; photo2?: Photo; photoNote?: string; nameNote?: string;
+};
+export type Part = {
+  slug?: string; name: string; units: number; city?: string; confirm?: boolean; nameNote?: string;
+  photo?: Photo; photoNote?: string; photoOwnershipConfirm?: boolean;
 };
 export type Deal = {
   slug: string; name: string; status: 'current' | 'sold' | 'prior'; units: number;
   acquired?: string; sold?: string; irr?: number; market: string; marketConfirm?: boolean;
-  neighborhood?: string; summary?: string; summaryConfirm?: boolean; flag?: FlagName;
-  parts?: { name: string; units: number; confirm?: boolean }[]; partsNote?: string;
-  photos: Photo[]; photoNote?: string; outcome?: string; outcomeConfirm?: boolean;
-  capitalReturnedConfirm?: boolean; communities?: Community[];
+  neighborhood?: string; summary?: string; summaryTag?: string; flag?: FlagName;
+  description?: string; descriptionTag?: string; descriptionNote?: string;
+  parts?: Part[]; partsDescriptionTag?: string; unitSplitNote?: string;
+  photos: Photo[]; photoNote?: string; photoOwnershipConfirm?: boolean; outcome?: string; outcomeTag?: string;
+  capitalReturnedConfirm?: boolean; communities?: Community[]; portfolio?: Portfolio;
 };
-export type FlagName = 'um5Public' | 'lifetimeTotal' | 'capitalTotals' | 'irr' | 'woodmere' | 'ridgeway' | 'aliceSprings' | 'latestNews';
+export type FlagName = 'um5Public' | 'lifetimeTotal' | 'capitalTotals' | 'irr' | 'woodmere' | 'ridgeway' | 'aliceSprings' | 'latestNews' | 'dealFinancials' | 'davidShores';
 
 export const flags = flagsJson as Record<FlagName, boolean> & { heroVariant: 'A' | 'B' };
 export const copy = copyJson;

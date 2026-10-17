@@ -7,6 +7,17 @@ export function Confirm({ children = 'Confirm' }: { children?: React.ReactNode }
 }
 
 /**
+ * Review tag with a kind: DRAFT (copy written from sources, Justin to read), JUSTIN (only Justin
+ * can supply/decide), COUNSEL (securities counsel), SUPPLY, CONFIRM. Hidden on the launch build.
+ */
+export function Tag({ kind, children }: { kind?: string; children?: React.ReactNode }) {
+  if (!kind) return null;
+  const k = kind.split(/[ +]/)[0].toLowerCase();
+  const label = kind === 'DRAFT' ? 'DRAFT · Justin to read' : kind;
+  return <span className={`note note-${k}`}>{label}{children ? <> — {children}</> : null}</span>;
+}
+
+/**
  * Content behind a launch switch in content/flags.json.
  * Public build: rendered only when the flag is true.
  * Preview build: always rendered; when the flag is off it gets a dashed yellow frame

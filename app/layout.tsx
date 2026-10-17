@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={SHOW_REVIEW_NOTES ? '' : 'launch'}>
-        {SHOW_REVIEW_NOTES && <div className="preview-banner">Preview build · Not for publication · Yellow tags mark items to confirm</div>}
+        {SHOW_REVIEW_NOTES && <div className="preview-banner">Preview build · Not for publication · Tags: blue = draft for Justin to read · yellow = Justin · red = counsel</div>}
         <Header />
         <main>{children}</main>
         <Footer />

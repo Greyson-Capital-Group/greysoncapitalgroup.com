@@ -337,3 +337,24 @@ code{font-size:.9em;background:#f1efe6;padding:1px 4px}
 }
 .hero .gated-label,.proof .gated-label{font-size:9px;padding:4px 6px;margin-bottom:8px}
 .hero-metrics .gated{outline-offset:2px}
+
+/* ---------- next pass (fill list) ---------- */
+.note-draft{background:#e6f0ff;color:#183a6b;border-color:#5a7fb8}
+.note-justin{background:#fff3c4;color:#5a4500;border-color:#b38f00}
+.note-counsel{background:#fde8e8;color:#7a1f1f;border-color:#c25a5a}
+.note-supply,.note-confirm{background:#f1efe6;color:#4a4639;border-color:#8f8a77}
+.launch .review-only{display:none!important}
+.brand-block{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#141416 url(/img/brand_damask_strip.jpg) repeat;}
+.brand-block img{width:64px;opacity:.85}
+.cards>.card-cell.wide{grid-column:1/-1}
+.portfolio-head{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:end;border:1px solid #3a3c40;padding:28px;color:#e6e7e9}
+.portfolio-head h3{font-size:28px;margin:10px 0 8px;color:#fff}.portfolio-head p{color:#b5b8be}
+.pf-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px}
+.pf-facts .gated{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px}
+.pf-facts .gated-label{grid-column:1/-1}
+.pf-facts dt{font:600 10px/1 var(--caps);letter-spacing:.16em;text-transform:uppercase;color:#8d9096}
+.pf-facts dd{font:500 26px/1.15 var(--serif);color:#fff;margin-top:6px}
+.dark .filters button{background:transparent;color:#cfd1d4;border-color:#55585e}
+.dark .filters button.on{background:#fff;color:#111;border-color:#fff}
+@media (max-width:760px){.portfolio-head{grid-template-columns:1fr;padding:20px}}
+.cards>.card-cell.wide>.portfolio-head{display:grid}

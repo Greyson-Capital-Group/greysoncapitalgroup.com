@@ -48,7 +48,7 @@ export default function InvestorsPage() {
         <ul className="pill-list" style={{marginTop:'6px'}}>
           <li style={{borderColor:'#3a3c40'}}><b>—</b><span style={{color:'#cfd1d4'}}>Direct access to the principals</span></li>
           <li style={{borderColor:'#3a3c40'}}><b>—</b><span style={{color:'#cfd1d4'}}>Portal-based documents and updates</span></li>
-          <li style={{borderColor:'#3a3c40'}}><b>—</b><span style={{color:'#cfd1d4'}}><span className="note">Reporting cadence — confirm</span></span></li>
+          <li style={{borderColor:'#3a3c40'}}><b>—</b><span style={{color:'#cfd1d4'}}><span className="note note-justin">JUSTIN — reporting cadence</span></span></li>
         </ul>
       </div>
     </div>
@@ -61,7 +61,7 @@ export default function InvestorsPage() {
     <div><h4>Who can invest?</h4><p>Accredited investors only. We confirm status before sharing offering details.</p></div>
     <div><h4>Is there an offering open now?</h4><p>We do not post offerings on this site. Submit an inquiry and we will tell you directly.</p></div>
     <div><h4>Where are returns reported?</h4><p>In the investor portal, to investors. We do not publish performance for communities we still hold.</p></div>
-    <div><h4>What is the minimum investment?</h4><p><span className="note">Justin / counsel to answer or remove</span></p></div>
+    <div><h4>What is the minimum investment?</h4><p><span className="note note-counsel">COUNSEL + JUSTIN — minimum investment</span></p></div>
   </div>
 </div></section>
     </>

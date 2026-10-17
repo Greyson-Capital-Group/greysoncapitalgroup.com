@@ -8,5 +8,7 @@
   "ridgeway": false,
   "aliceSprings": false,
   "latestNews": true,
-  "heroVariant": "A"
+  "heroVariant": "A",
+  "dealFinancials": false,
+  "davidShores": false
 }

@@ -22,7 +22,14 @@
       "irr": 0
     },
     "fl3": {
-      "irr": 0
+      "irr": 0,
+      "portfolio": {
+        "purchasePrice": "\u2026",
+        "capex": "\u2026",
+        "equity": "\u2026",
+        "capitalReturned": "\u2026",
+        "capitalReturnedTag": "\u2026"
+      }
     },
     "woodmere": {
       "outcome": "\u2026"

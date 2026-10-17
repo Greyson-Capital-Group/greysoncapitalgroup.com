@@ -1,13 +1,22 @@
-import { Confirm } from '@/components/Flags';
-import { type Community, type Deal, flags, fmtMonth, isOn, isVisible, n, year } from '@/lib/content';
+import { Gate, Tag } from '@/components/Flags';
+import { type Community, type Deal, type Part, flags, fmtMonth, isVisible, n, year } from '@/lib/content';
+import { SHOW_REVIEW_NOTES } from '@/data/site';
 
-function Media({ photo, label, note, dark, badge, badgeClass }: { photo?: { src: string; alt: string }; label: string; note?: string; dark?: boolean; badge: string; badgeClass?: string }) {
+type P = { src: string; alt: string };
+
+/**
+ * Card image. With no owned photo: the preview shows a labeled "photo needed" block;
+ * the launch build shows a plain brand block (no placeholder text in public).
+ */
+function Media({ photo, label, note, dark, badge, badgeClass }: { photo?: P; label: string; note?: string; dark?: boolean; badge: string; badgeClass?: string }) {
   return (
     <div className="media">
       {photo ? (
         <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+      ) : SHOW_REVIEW_NOTES ? (
+        <div className={dark ? 'placeholder dark' : 'placeholder'}><span>Photo needed<br />{label}{note && note.replace(/^Photo needed[:.]?\s*/i, '') ? <><br /><small>{note.replace(/^Photo needed[:.]?\s*/i, '')}</small></> : null}</span></div>
       ) : (
-        <div className={dark ? 'placeholder dark' : 'placeholder'}><span>Photo needed<br />{label}{note ? <><br /><small>{note}</small></> : null}</span></div>
+        <div className="brand-block" role="img" aria-label={label}><img src="/img/logo_G_silver.png" alt="" /></div>
       )}
       <span className={`badge ${badgeClass ?? ''}`}>{badge}</span>
     </div>
@@ -31,7 +40,7 @@ export function CurrentCard({ d }: { d: Deal }) {
         <div className="market">{d.market}</div>
         <h3>{d.name}</h3>
         {d.parts && <div>{d.parts.map((p) => <span key={p.name} className="tag">{p.name} · {p.units}u</span>)}</div>}
-        <p>{d.summary} {d.summaryConfirm && <Confirm>One-liner — confirm</Confirm>}</p>
+        <p>{d.summary} <Tag kind={d.summaryTag} /></p>
         <div className="facts">
           <div><strong>{n(d.units)}</strong><span>Units</span></div>
           <div><strong>{fmtMonth(d.acquired)}</strong><span>Acquired</span></div>
@@ -47,11 +56,10 @@ export function CommunityCard({ c, acquired }: { c: Community; acquired?: string
     <article className="card">
       <Media photo={c.photo} label={c.name} badge="UM5" />
       <div className="body">
-        <div className="market">{c.neighborhood} · Memphis, TN <Confirm>Neighborhood</Confirm></div>
+        <div className="market">Near the University of Memphis · Memphis, TN</div>
         <h3>{c.name}</h3>
-        <p>{c.summary} <Confirm>One-liner — confirm</Confirm></p>
-        {c.nameNote && <p><Confirm>{c.nameNote}</Confirm></p>}
-        {c.photoNote && <p><Confirm>{c.photoNote}</Confirm></p>}
+        <p>{c.summary} <Tag kind={c.summaryTag} /></p>
+        {c.photoNote && <p><Tag kind="JUSTIN">{c.photoNote}</Tag></p>}
         <div className="facts">
           <div><strong>{n(c.units)}</strong><span>Units</span></div>
           <div><strong>{fmtMonth(acquired)}</strong><span>Acquired (UM5)</span></div>
@@ -67,28 +75,76 @@ export function SoldCard({ d, showIrr = true }: { d: Deal; showIrr?: boolean }) 
   const badge = d.status === 'prior' ? 'Prior interest' : 'Sold';
   return (
     <article className="card light">
-      <Media photo={d.photos[0]} label={d.name} note={d.photoNote ? 'Owned photo needed' : undefined} dark badge={badge} badgeClass="sold" />
+      <Media photo={d.photos[0]} label={d.name} note={d.photoNote} dark badge={badge} badgeClass="sold" />
       <div className="body">
-        <div className="market">{d.market || <Confirm>Market — supply</Confirm>} {d.market && d.marketConfirm && <Confirm>confirm</Confirm>}</div>
+        <div className="market">{d.market || <Tag kind="JUSTIN">Market</Tag>}</div>
         <h3>{d.name}</h3>
-        {d.parts && (
-          <div>{d.parts.map((p) => <span key={p.name} className="tag tag-dark">{p.name} {p.units}u</span>)} {d.partsNote && <Confirm>Names & split — confirm</Confirm>}</div>
-        )}
+        {d.parts && <div>{d.parts.map((p) => <span key={p.name} className="tag tag-dark">{p.name} {p.units}u</span>)}</div>}
         <p>
-          {d.outcome ?? (d.flag ? <Confirm>Wording loads from private content</Confirm> : `Bought ${fmtMonth(d.acquired)}. Sold ${fmtMonth(d.sold)}. Full cycle complete.`)}{' '}
-          {d.outcomeConfirm && <Confirm>Wording — confirm</Confirm>}
+          {d.outcome ?? (d.flag ? <Tag kind="CONFIRM">Wording loads from private content</Tag> : `Bought ${fmtMonth(d.acquired)}. Sold ${fmtMonth(d.sold)}. Full cycle complete.`)}{' '}
+          <Tag kind={d.outcomeTag} />
         </p>
+        {d.photoOwnershipConfirm && <p><Tag kind="CONFIRM">Photo from 2022 site: confirm Greyson owns it</Tag></p>}
         <div className="facts">
           <div><strong>{n(d.units)}</strong><span>Units</span></div>
           {d.sold && <div><strong>{year(d.sold)}</strong><span>Sold</span></div>}
           {irrVisible && (
-            <div className={isOn('irr') ? '' : 'gated-fact'}>
+            <div>
               <strong>{d.irr!.toFixed(2)}%</strong>
-              <span>IRR {!flags.irr && <Confirm>Counsel</Confirm>}</span>
+              <span>IRR {!flags.irr && <Tag kind="COUNSEL">basis</Tag>}</span>
             </div>
           )}
         </div>
       </div>
     </article>
+  );
+}
+
+/** One property inside the Florida 3 Portfolio. Per-property price, equity and IRR are not shown. */
+export function PartCard({ p, group }: { p: Part; group: Deal }) {
+  return (
+    <article className="card light">
+      <Media photo={p.photo} label={p.name} note={p.photoNote} dark badge="Sold · FL3" badgeClass="sold" />
+      <div className="body">
+        <div className="market">{p.city}</div>
+        <h3>{p.name}</h3>
+        {p.nameNote && <p><Tag kind="CONFIRM">{p.nameNote}</Tag></p>}
+        <p>Sold, part of the Florida 3 Portfolio. <Tag kind={group.partsDescriptionTag}>one-line description</Tag></p>
+        {p.photoOwnershipConfirm && <p><Tag kind="CONFIRM">Photo from 2022 site: confirm Greyson owns it</Tag></p>}
+        <div className="facts">
+          <div><strong>{n(p.units)}</strong><span>Units</span></div>
+          <div><strong>{year(group.acquired)}–{year(group.sold)}</strong><span>Held (portfolio dates) <Tag kind="CONFIRM">per-property dates</Tag></span></div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+/** Portfolio-level header for FL3. All money and return figures stay at this level. */
+export function PortfolioHeader({ d }: { d: Deal }) {
+  const pf = d.portfolio;
+  return (
+    <div className="portfolio-head">
+      <div>
+        <div className="eyebrow">Florida 3 Portfolio · {d.market}</div>
+        <h3>Three communities, bought and sold together.</h3>
+        <p>Bought {fmtMonth(d.acquired)}. Sold {fmtMonth(d.sold)}. Full cycle complete.</p>
+      </div>
+      <dl className="pf-facts">
+        <div><dt>Communities</dt><dd>{d.parts?.length}</dd></div>
+        <div><dt>Units</dt><dd>{n(d.units)}</dd></div>
+        {d.irr !== undefined && isVisible('irr') && (
+          <Gate flag="irr" label="counsel"><div><dt>Portfolio IRR</dt><dd>{d.irr.toFixed(2)}%</dd></div></Gate>
+        )}
+        {pf && isVisible('dealFinancials') && (
+          <Gate flag="dealFinancials" label="counsel">
+            <div><dt>Purchase price</dt><dd>{pf.purchasePrice}</dd></div>
+            <div><dt>CapEx</dt><dd>{pf.capex}</dd></div>
+            <div><dt>Equity</dt><dd>{pf.equity}</dd></div>
+            <div><dt>Capital returned</dt><dd>{pf.capitalReturned} <Tag kind="COUNSEL">{pf.capitalReturnedTag}</Tag></dd></div>
+          </Gate>
+        )}
+      </dl>
+    </div>
   );
 }

@@ -1,5 +1,6 @@
-import { SoldCard } from '@/components/Cards';
-import { Confirm, Gate } from '@/components/Flags';
+import { PartCard, PortfolioHeader, SoldCard } from '@/components/Cards';
+import FilterGrid from '@/components/FilterGrid';
+import { Confirm, Gate, Tag } from '@/components/Flags';
 import { capital, copy, deal, flags, fmtMonth, isVisible, metrics, n, soldDeals } from '@/lib/content';
 import { SCHEDULE_URL } from '@/data/site';
 
@@ -39,6 +40,7 @@ export default function TrackRecordPage() {
             <p className="lede small">Totals across every multifamily deal above, including pending items. <Confirm>Counsel: confirm presentation</Confirm></p></div>
           <table className="ledger"><tbody>
             <tr><td>{capital.equityRaised.label}</td><td className="num">{capital.equityRaised.display}</td></tr>
+            {capital.equityRaised.detail && <tr className="sub"><td colSpan={2}>{capital.equityRaised.detail} exact</td></tr>}
             <tr><td>{capital.capitalDeployed.label}</td><td className="num">{capital.capitalDeployed.display}</td></tr>
             <tr className="sub"><td colSpan={2}>{capital.capitalDeployed.detail}</td></tr>
           </tbody></table>
@@ -47,22 +49,29 @@ export default function TrackRecordPage() {
 
       <section className="dark" id="sold"><div className="wrap">
         <div className="section-head"><div><div className="eyebrow">Sold</div><h2>Full cycle complete.</h2></div></div>
-        <div className="cards">{sold.map((d) => <SoldCard key={d.slug} d={d} />)}</div>
+        <FilterGrid
+          allLabel="All sold"
+          chips={['Tennessee', 'Florida']}
+          items={[
+            { id: 'clearbrook', tags: ['Tennessee'], node: <SoldCard d={deal('clearbrook')} /> },
+            { id: 'millington-oaks', tags: ['Tennessee'], node: <SoldCard d={deal('millington-oaks')} /> },
+            { id: 'fl3-head', tags: ['Florida'], wide: true, node: <PortfolioHeader d={fl3} /> },
+            ...fl3.parts!.map((p) => ({ id: p.slug ?? p.name, tags: ['Florida'], node: <PartCard p={p} group={fl3} /> })),
+          ]}
+        />
         <div className="small-print">
-          <p>Bought and sold: Clearbrook Village {fmtMonth(deal('clearbrook').acquired)}–{fmtMonth(deal('clearbrook').sold)} · Millington Oaks {fmtMonth(deal('millington-oaks').acquired)}–{fmtMonth(deal('millington-oaks').sold)} · Florida 3 Portfolio {fmtMonth(fl3.acquired)}–{fmtMonth(fl3.sold)}.</p>
+          <p>Bought and sold: Clearbrook Village {fmtMonth(deal('clearbrook').acquired)}–{fmtMonth(deal('clearbrook').sold)} · Millington Oaks {fmtMonth(deal('millington-oaks').acquired)}–{fmtMonth(deal('millington-oaks').sold)} · Florida 3 Portfolio {fmtMonth(fl3.acquired)}–{fmtMonth(fl3.sold)} ({fl3.parts!.map((p) => `${p.name} ${p.units}`).join(' + ')} = {fl3.units} units).</p>
           <Gate flag="irr" label="counsel review">
-            <p>IRRs are shown only for these three full-cycle exits. We do not publish a blended or average IRR, or IRRs for deals still held. Past results do not guarantee future results. <Confirm>Counsel: IRR basis (net to investors?) and required disclosures</Confirm></p>
+            <p>IRRs are shown only for these three full-cycle exits, and for Florida 3 at the portfolio level only. We do not publish a blended or average IRR, or IRRs for deals still held. Past results do not guarantee future results. <Tag kind="COUNSEL">IRR basis (net to investors?) and required disclosures</Tag></p>
           </Gate>
-          {fl3.capitalReturnedConfirm && <p><Confirm>Florida 3 capital returned — stays CONFIRM until counsel clears</Confirm></p>}
-          {fl3.partsNote && <p><Confirm>{fl3.partsNote}</Confirm></p>}
         </div>
       </div></section>
 
       {(isVisible('woodmere') || isVisible('ridgeway')) && <section id="pending"><div className="wrap">
         <div className="section-head"><div><div className="eyebrow">Other multifamily history</div><h2>Shown when confirmed.</h2></div></div>
         <div className="cards">
-          <Gate flag="woodmere" label="wording to confirm"><SoldCard d={deal('woodmere')} showIrr={false} /></Gate>
-          <Gate flag="ridgeway" label="wording to confirm"><SoldCard d={deal('woods-at-ridgeway')} showIrr={false} /></Gate>
+          <Gate flag="woodmere" label="Justin decides (recommended: show)"><SoldCard d={deal('woodmere')} showIrr={false} /></Gate>
+          <Gate flag="ridgeway" label="hold until counsel OKs wording"><SoldCard d={deal('woods-at-ridgeway')} showIrr={false} /></Gate>
         </div>
       </div></section>}
 

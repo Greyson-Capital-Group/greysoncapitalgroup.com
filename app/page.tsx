@@ -1,6 +1,6 @@
 import Hero from '@/components/Hero';
 import { CurrentCard, SoldCard } from '@/components/Cards';
-import { Confirm, Gate } from '@/components/Flags';
+import { Gate, Tag } from '@/components/Flags';
 import { copy, deal, flags, fmtMonth, isVisible, metrics, n, soldDeals, type FlagName } from '@/lib/content';
 import { JUNIPER_URL, SCHEDULE_URL, SHOW_REVIEW_NOTES } from '@/data/site';
 
@@ -11,7 +11,7 @@ export default function IndexPage() {
       <Hero variant={flags.heroVariant} />
       {SHOW_REVIEW_NOTES && (
         <div className="review-strip"><div className="wrap">
-          <Confirm>Hero shown: option {flags.heroVariant}</Confirm> <a href="/hero-options">Compare hero options A and B →</a>
+          <Tag kind="JUSTIN">hero A or B · showing {flags.heroVariant} (recommended: A)</Tag> <a href="/hero-options">Compare hero options A and B →</a>
         </div></div>
       )}
 
@@ -21,8 +21,8 @@ export default function IndexPage() {
         <div className="item"><strong>{n(metrics.confirmed)}</strong><span>Confirmed multifamily units <a href="/track-record#methodology" className="fn">¹</a></span></div>
         {isVisible('lifetimeTotal') ? (
           <div className="item">
-            <Gate flag="lifetimeTotal" label="pending items">
-              <strong>~2,000+</strong><span>Lifetime doors incl. pending ({n(metrics.lifetime)})</span>
+            <Gate flag="lifetimeTotal" label="Justin clears">
+              <strong>{n(metrics.lifetime)}</strong><span>Lifetime multifamily doors</span>
             </Gate>
           </div>
         ) : (
@@ -32,11 +32,11 @@ export default function IndexPage() {
 
       <section><div className="wrap split">
         <div><div className="eyebrow">Our edge</div><h2 style={{ marginTop: '14px' }}>Operator-led.<br />Built one community at a time.</h2><div className="rule"></div>
-          <p className="lede">We own and manage multifamily housing. We know our assets by unit, not by slide. {copy.edge.confirm && <Confirm>Edge copy — confirm</Confirm>}</p>
+          <p className="lede">{copy.edge.lede} <Tag kind={copy.edge.ledeTag} /></p>
           <div className="btn-row"><a className="btn btn-outline" href="/strategy">How we work</a></div></div>
         <ul className="pill-list">
           {copy.edge.items.map((e, i) => (
-            <li key={e.title}><b>0{i + 1}</b><div><h3>{e.title}</h3><p className="lede small">{e.body}</p></div></li>
+            <li key={e.title}><b>0{i + 1}</b><div><h3>{e.title}</h3><p className="lede small">{e.body} {i === 0 && <Tag kind={copy.edge.itemsTag} />}</p></div></li>
           ))}
         </ul>
       </div></section>
@@ -63,7 +63,7 @@ export default function IndexPage() {
         <div className="cards">
           {soldDeals.filter((d) => !d.flag).map((d) => <SoldCard key={d.slug} d={d} />)}
         </div>
-        <Gate flag="irr" label="counsel review"><p className="small-print">IRRs are shown for full-cycle exits only. <Confirm>Counsel: define IRR basis (net to investors?) and required disclosures</Confirm></p></Gate>
+        <Gate flag="irr" label="counsel review"><p className="small-print">IRRs are shown for full-cycle exits only. <Tag kind="COUNSEL">IRR basis and required disclosures</Tag></p></Gate>
       </div></section>
 
       <Gate flag="latestNews">
@@ -81,7 +81,7 @@ export default function IndexPage() {
               return 'flag' in item && item.flag ? <Gate key={item.title} flag={item.flag as FlagName}>{body}</Gate> : <div key={item.title}>{body}</div>;
             })}
           </div>
-          <p style={{ marginTop: '24px' }}><Confirm>{copy.newsNote}</Confirm></p>
+          <p style={{ marginTop: '24px' }}><Tag kind="JUSTIN">{copy.newsNote}</Tag></p>
         </div></section>
       </Gate>
 
@@ -89,7 +89,7 @@ export default function IndexPage() {
         <div className="eyebrow">Working with Greyson</div><h2 style={{ marginTop: '14px', maxWidth: '760px' }}>Built for investors who read the details.</h2>
         <div className="grid3" style={{ marginTop: '56px' }}>
           <div className="tile"><h4>Who we work with</h4><p>Accredited individuals, family offices and smaller institutions.</p></div>
-          <div className="tile"><h4>How we report</h4><p>Documents and updates live in the Juniper Square investor portal. <Confirm>Reporting cadence — confirm</Confirm></p></div>
+          <div className="tile"><h4>How we report</h4><p>Documents and updates live in the Juniper Square investor portal. <Tag kind="JUSTIN">reporting cadence</Tag></p></div>
           <div className="tile"><h4>How we start</h4><p>A short inquiry, accreditation confirmation, then a call with the principals.</p></div>
         </div>
       </div></section>

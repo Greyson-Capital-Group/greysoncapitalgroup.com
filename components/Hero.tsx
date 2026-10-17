@@ -13,10 +13,10 @@ export default function Hero({ variant, label }: { variant: 'A' | 'B'; label?: s
         <p className="hero-sub">{copy.hero.sub}</p>
         <div className="hero-metrics">
           <div><strong>{n(metrics.confirmed)}</strong><span>Multifamily units held and sold · {n(metrics.held)} held, {n(metrics.sold)} sold <a href="/track-record#methodology" className="fn">¹</a></span></div>
-          <Gate flag="lifetimeTotal" label="pending items">
-            <div><strong>~2,000+</strong><span>Lifetime multifamily doors ({n(metrics.lifetime)}) <a href="/track-record#methodology" className="fn">¹</a></span></div>
+          <Gate flag="lifetimeTotal" label="Justin clears">
+            <div><strong>{n(metrics.lifetime)}</strong><span>Lifetime multifamily doors <a href="/track-record#methodology" className="fn">¹</a></span></div>
           </Gate>
-          <Gate flag="capitalTotals" label="Justin + counsel">
+          <Gate flag="capitalTotals" label="counsel">
             <div><strong>{capital.capitalDeployed.display}</strong><span>{capital.capitalDeployed.label}</span></div>
           </Gate>
         </div>
