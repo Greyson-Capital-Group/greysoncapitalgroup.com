@@ -12,7 +12,7 @@ import path from 'node:path';
 // (set in Netlify), or from a local, gitignored content/private.json.
 type Money = { value: number; display: string; label: string; detail?: string; flag?: string };
 export type Portfolio = { purchasePrice: string; capex: string; equity: string; capitalReturned: string; capitalReturnedTag?: string };
-type Private = { capital?: Record<'equityRaised' | 'capitalDeployed', Money>; deals?: Record<string, { irr?: number; outcome?: string; portfolio?: Portfolio }> };
+type Private = { aliceSprings?: { revenueHeadline?: string; revenueClaim?: string; revenueNote?: string }; capital?: Record<'equityRaised' | 'capitalDeployed', Money>; deals?: Record<string, { irr?: number; outcome?: string; portfolio?: Portfolio }> };
 function loadPrivate(): Private {
   try {
     if (process.env.GREYSON_PRIVATE_CONTENT) return JSON.parse(process.env.GREYSON_PRIVATE_CONTENT);
@@ -44,7 +44,7 @@ export type Deal = {
   photos: Photo[]; photoNote?: string; photoOwnershipConfirm?: boolean; outcome?: string; outcomeTag?: string;
   capitalReturnedConfirm?: boolean; communities?: Community[]; portfolio?: Portfolio;
 };
-export type FlagName = 'um5Public' | 'lifetimeTotal' | 'capitalTotals' | 'irr' | 'woodmere' | 'ridgeway' | 'aliceSprings' | 'latestNews' | 'dealFinancials' | 'davidShores';
+export type FlagName = 'um5Public' | 'lifetimeTotal' | 'capitalTotals' | 'irr' | 'woodmere' | 'ridgeway' | 'aliceSprings' | 'latestNews' | 'dealFinancials' | 'davidShores' | 'hospitalityRevenue';
 
 export const flags = flagsJson as Record<FlagName, boolean> & { heroVariant: 'A' | 'B' };
 export const copy = copyJson;
@@ -53,7 +53,7 @@ export const capital = {
   equityRaised: priv.capital?.equityRaised ?? missing('Lifetime equity raised'),
   capitalDeployed: priv.capital?.capitalDeployed ?? missing('Lifetime capital deployed (purchase + CapEx)'),
 };
-export const aliceSprings = portfolio.aliceSprings;
+export const aliceSprings = { ...portfolio.aliceSprings, ...(priv.aliceSprings ?? {}) } as typeof portfolio.aliceSprings & { revenueHeadline?: string; revenueClaim?: string; revenueNote?: string };
 export const deals = (portfolio.deals as Deal[]).map((d) => ({ ...d, ...(priv.deals?.[d.slug] ?? {}) }));
 
 /** true when the item is live on the public site. */

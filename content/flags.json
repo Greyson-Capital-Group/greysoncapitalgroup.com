@@ -10,5 +10,6 @@
   "latestNews": true,
   "heroVariant": "A",
   "dealFinancials": false,
-  "davidShores": false
+  "davidShores": false,
+  "hospitalityRevenue": false
 }

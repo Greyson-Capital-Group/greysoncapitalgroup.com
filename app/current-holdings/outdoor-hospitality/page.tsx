@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import HoldingsTabs from '@/components/HoldingsTabs';
-import { Tag } from '@/components/Flags';
-import { aliceSprings as a, fmtMonth, isVisible } from '@/lib/content';
+import { Gate, Tag } from '@/components/Flags';
+import { aliceSprings as a, isVisible } from '@/lib/content';
 import { SCHEDULE_URL, SHOW_REVIEW_NOTES } from '@/data/site';
 
 export const metadata = {
@@ -20,7 +20,7 @@ export default function OutdoorHospitalityPage() {
         <div className="crumbs">Home / Current Holdings / Outdoor Hospitality</div><div className="eyebrow light">Portfolio · Current</div>
         <h1>Current holdings.</h1>
         <HoldingsTabs active="hospitality" />
-        <p className="lede">{a.name}. {a.location}. Acquired {fmtMonth(a.acquired)}.</p>
+        <p className="lede">{a.name}. {a.location}. Acquired {a.acquired}.</p>
       </div></section>
 
       <section className="oh-hero"><img src={aerial.src} alt={aerial.alt} fetchPriority="high" /></section>
@@ -34,16 +34,16 @@ export default function OutdoorHospitalityPage() {
       {SHOW_REVIEW_NOTES && (
         <div className="review-strip"><div className="wrap" style={{ display: 'grid', gap: 6 }}>
           <span><Tag kind="CONFIRM">{a.rvSitesNote}</Tag></span>
-          <span><Tag kind="COUNSEL">{a.ownershipNote}</Tag></span>
-          <span><Tag kind="JUSTIN">{a.photoNote}</Tag></span>
+          <span><Tag kind="CONFIRM">Acquired: project record shows the loan closed Aug 2022; you said end of 2022. Showing “2022”.</Tag></span>
         </div></div>
       )}
 
       <section><div className="wrap split">
         <div>
           <div className="eyebrow">Why we own it</div><h2 style={{ marginTop: '14px' }}>Our pilot in outdoor hospitality.</h2><div className="rule"></div>
-          <p className="lede small">We bought Alice Springs in August 2022 as a pilot. Before expanding acquisitions in outdoor hospitality, we wanted to understand the industry from the inside: how a resort-style RV park earns its revenue, runs its seasons and staffs its operations.</p>
+          <p className="lede small">We bought Alice Springs in 2022 as a pilot. Before expanding acquisitions in outdoor hospitality, we wanted to understand the industry from the inside: how a resort-style RV park earns its revenue, runs its seasons and staffs its operations.</p>
           <p className="lede small" style={{ marginTop: '16px' }}>So we operate it ourselves, with an approach similar to the one we use at our apartment communities: improve the property, build systems, and protect the asset.</p>
+          <p className="lede small" style={{ marginTop: '16px' }}>Like our multifamily deals, Greyson’s principals are part of the ownership group alongside investors, and Greyson asset-manages the property.</p>
           <p style={{ marginTop: '16px' }}><Tag kind="DRAFT" /> <Tag kind="COUNSEL">“before expanding acquisitions” is forward-looking</Tag></p>
         </div>
         <div className="ph32"><img src={entrance.src} alt={entrance.alt} loading="lazy" /></div>
@@ -53,8 +53,10 @@ export default function OutdoorHospitalityPage() {
         <div className="eyebrow">What we have done</div><h2 style={{ marginTop: '14px' }}>Improve the property. Build the systems.</h2>
         <div className="steps" style={{ marginTop: '48px' }}>
           <div className="step"><div className="n">01</div><h3>The property</h3><ul>
-            <li>New brand, website and virtual tour</li>
+            <li>Added 35 new RV sites and 6 cabins</li>
+            <li>Upgraded the feel of the park and its amenities to make it more family friendly</li>
             <li>Added a jump pad, gem mining sluice and pickleball</li>
+            <li>New brand, website and virtual tour</li>
             <li>Golf-cart trails and rentals across the 178 acres</li>
             <li>Themed weekends from spring through Halloween</li></ul></div>
           <div className="step"><div className="n">02</div><h3>The infrastructure</h3><ul>
@@ -68,7 +70,11 @@ export default function OutdoorHospitalityPage() {
             <li>Departments, procedures and monthly financial reporting</li>
             <li>On-site dining and bar run under a licensed operating company</li></ul></div>
         </div>
-        <p style={{ marginTop: '32px' }}><Tag kind="DRAFT">drawn from the Alice Springs project record; confirm each line</Tag></p>
+        {a.revenueClaim && <Gate flag="hospitalityRevenue" label="counsel: performance claim">
+          <div className="oh-result"><strong>{a.revenueHeadline}</strong><span>{a.revenueClaim}</span></div>
+          {SHOW_REVIEW_NOTES && <p style={{ marginTop: 10 }}><Tag kind="CONFIRM">{a.revenueNote}</Tag></p>}
+        </Gate>}
+        <p style={{ marginTop: '32px' }}><Tag kind="DRAFT">drawn from the Alice Springs project record and your notes; confirm each line</Tag></p>
       </div></section>
 
       <section><div className="wrap">
