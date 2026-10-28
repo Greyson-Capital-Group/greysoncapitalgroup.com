@@ -301,14 +301,14 @@
       "Camp store",
       "Themed weekends, spring through Halloween",
       "Dog park",
-      "Rustic and deluxe waterfront cabins",
+      "6 deluxe and 4 rustic cabins",
       "Seasonal sites"
     ],
     "website": "https://www.alicespringsrvpark.com/",
     "photos": [
       {
-        "src": "/img/alice-springs-fall-aerial.jpg",
-        "alt": "Fall sunrise aerial of the lake, cabins and RV sites at Alice Springs RV Park & Resort"
+        "src": "/img/alice-springs-sunrise-aerial.jpg",
+        "alt": "Sunrise drone view over the lake, cabins and RV sites at Alice Springs RV Park & Resort"
       },
       {
         "src": "/img/alice-springs-aerial-lake.jpg",
@@ -335,11 +335,11 @@
         "alt": "Camp store at Alice Springs"
       }
     ],
-    "acquired": "2022",
+    "acquired": "August 2022",
     "acres": 178,
-    "rvSitesLabel": "150+",
-    "rvSitesNote": "Park's own site says 150+ full-hookup RV sites; Campspot shows 158 active (181 total). Using 150+.",
-    "cabinsLabel": "Rustic & deluxe"
+    "rvSitesLabel": "157",
+    "cabinsLabel": "10",
+    "cabinsDetail": "6 deluxe, 4 rustic"
   },
   "_private": "IRRs, capital totals and the Woodmere/Ridgeway outcome wording are not in this public repo. They load at build time from the GREYSON_PRIVATE_CONTENT environment variable (see content/private.example.json).",
   "capital": {

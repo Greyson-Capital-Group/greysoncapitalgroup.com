@@ -28,20 +28,14 @@ export default function OutdoorHospitalityPage() {
       <section className="proof"><div className="wrap">
         <div className="item"><strong>{a.acres}</strong><span>Acres</span></div>
         <div className="item"><strong>{a.rvSitesLabel}</strong><span>Full-hookup RV sites</span></div>
-        <div className="item"><strong>Cabins</strong><span>{a.cabinsLabel}, including waterfront</span></div>
+        <div className="item"><strong>{a.cabinsLabel}</strong><span>Cabins · {a.cabinsDetail}</span></div>
         <div className="item"><strong>Ionia, MI</strong><span>{a.access}</span></div>
       </div></section>
-      {SHOW_REVIEW_NOTES && (
-        <div className="review-strip"><div className="wrap" style={{ display: 'grid', gap: 6 }}>
-          <span><Tag kind="CONFIRM">{a.rvSitesNote}</Tag></span>
-          <span><Tag kind="CONFIRM">Acquired: project record shows the loan closed Aug 2022; you said end of 2022. Showing “2022”.</Tag></span>
-        </div></div>
-      )}
 
       <section><div className="wrap split">
         <div>
           <div className="eyebrow">Why we own it</div><h2 style={{ marginTop: '14px' }}>Our pilot in outdoor hospitality.</h2><div className="rule"></div>
-          <p className="lede small">We bought Alice Springs in 2022 as a pilot. Before expanding acquisitions in outdoor hospitality, we wanted to understand the industry from the inside: how a resort-style RV park earns its revenue, runs its seasons and staffs its operations.</p>
+          <p className="lede small">We bought Alice Springs in August 2022 as a pilot. Before expanding acquisitions in outdoor hospitality, we wanted to understand the industry from the inside: how a resort-style RV park earns its revenue, runs its seasons and staffs its operations.</p>
           <p className="lede small" style={{ marginTop: '16px' }}>So we operate it ourselves, with an approach similar to the one we use at our apartment communities: improve the property, build systems, and protect the asset.</p>
           <p className="lede small" style={{ marginTop: '16px' }}>Like our multifamily deals, Greyson’s principals are part of the ownership group alongside investors, and Greyson asset-manages the property.</p>
           <p style={{ marginTop: '16px' }}><Tag kind="DRAFT" /> <Tag kind="COUNSEL">“before expanding acquisitions” is forward-looking</Tag></p>

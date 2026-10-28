@@ -19,7 +19,7 @@ export default function AboutPage() {
           <p className="lede small" style={{ marginTop: '16px' }}>We grew by taking on the properties other owners avoided, distressed B/C workforce housing, and fixing them hands-on with conservative underwriting and our own construction and management teams.</p>
           <p className="lede small" style={{ marginTop: '16px' }}>What hasn't changed is how we work: buy at the right basis, protect investor capital, and tell investors the truth, good or bad.</p>
           <p style={{ marginTop: '16px' }}><Tag kind="DRAFT">Justin confirms the origin story</Tag></p>
-          <p style={{ marginTop: '16px', color: 'var(--muted)' }}>Headquartered in Grand Haven, Michigan. <Tag kind="JUSTIN">founding year</Tag></p></div>
+          <p style={{ marginTop: '16px', color: 'var(--muted)' }}>Founded in 2016. Headquartered in Grand Haven, Michigan.</p></div>
         <div style={{ aspectRatio: '4/3', overflow: 'hidden' }}><img src="/img/current_twin-oaks_sign_03.jpg" alt="Twin Oaks Townhomes monument sign" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
       </div></section>
 
@@ -35,10 +35,10 @@ export default function AboutPage() {
 
       <section className="paper"><div className="wrap split">
         <div><div className="eyebrow">Beyond multifamily</div><h2 style={{ marginTop: '14px' }}>Outdoor hospitality.</h2><div className="rule"></div>
-          <p className="lede small">Greyson also asset-manages Alice Springs RV Park &amp; Resort, a 178-acre resort campground in Ionia, Michigan, acquired in 2022 with our principals and investors in the ownership group. It is our pilot in outdoor hospitality: a way to learn the industry's operations from the inside before expanding acquisitions there, run with a similar playbook to our apartments.</p>
+          <p className="lede small">Greyson also asset-manages Alice Springs RV Park &amp; Resort, a 178-acre resort campground in Ionia, Michigan, acquired in August 2022 with our principals and investors in the ownership group. It is our pilot in outdoor hospitality: a way to learn the industry's operations from the inside before expanding acquisitions there, run with a similar playbook to our apartments.</p>
           <p style={{ marginTop: '14px' }}><Tag kind="DRAFT" /></p>
           <div className="btn-row"><a className="btn btn-outline" href="/current-holdings/outdoor-hospitality">The Alice Springs story</a></div></div>
-        <div className="ph32"><img src="/img/alice-springs-fall-aerial.jpg" alt="Fall sunrise aerial of the lake and cabins at Alice Springs RV Park & Resort" loading="lazy" /></div>
+        <div className="ph32"><img src="/img/alice-springs-sunrise-aerial.jpg" alt="Sunrise drone view over the lake and cabins at Alice Springs RV Park &amp; Resort" loading="lazy" /></div>
       </div></section>
 
       <section><div className="wrap">
@@ -47,8 +47,11 @@ export default function AboutPage() {
           <div className="person">
             <div className="ph" style={{ overflow: 'hidden' }}><img src="/img/justin-richards.jpg" alt="Justin Richards" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
             <h3>Justin Richards</h3><div className="role">Co-Founder &amp; Principal</div>
-            <p>Justin Richards is Co-Founder and Principal of Greyson Capital Group. He has more than a decade of hands-on multifamily experience, starting as an assistant manager at a 328-unit community, with depth in asset management, leasing, resident relations and collections. Before real estate he worked in commercial and residential construction and in low-voltage electrical work, rising from technician to upper management for national retail and office clients. He holds a B.S. from Michigan State University. Justin focuses Greyson on B/C value-add communities other owners avoid, pairing conservative underwriting with construction know-how. He led the turnaround of Twin Oaks in Memphis.</p>
-            <p style={{ marginTop: '10px' }}><Tag kind="DRAFT">bio</Tag> <Tag kind="JUSTIN">confirm headshot</Tag></p>
+            <p>Justin Richards co-founded Greyson Capital Group in 2016 and leads the firm's investment strategy, acquisitions and asset management. Greyson buys value-add B and C workforce multifamily in Memphis and the Southeast, where operational execution, not market timing, decides the outcome.</p>
+            <p style={{ marginTop: '12px' }}>Justin has more than a decade of multifamily operating experience, beginning in on-site management at a 328-unit community, with depth in leasing, collections and asset management. Earlier, he held progressively senior roles in commercial and residential construction and low-voltage systems, serving national retail and office clients. He holds a B.S. from Michigan State University.</p>
+            <p style={{ marginTop: '12px' }}>That construction background is Greyson's edge: renovation underwritten from real cost-to-build knowledge, and work overseen directly. It showed at Twin Oaks, a distressed 253-unit Memphis townhome community Greyson acquired in 2019 and turned around. Over its history Greyson has been involved in more than 2,000 multifamily units, including three full-cycle exits.</p>
+            <p style={{ marginTop: '12px' }}>He built Greyson so investors can work directly with the people doing the work, and always get a straight answer about their investment, good or bad.</p>
+            <p style={{ marginTop: '10px' }}><Tag kind="DRAFT">bio: approved 10/28 except the last sentence (reworded)</Tag> <Tag kind="JUSTIN">confirm headshot</Tag></p>
           </div>
           <Gate flag="davidShores" label="needs David's permission + headshot">
             <div className="person">
