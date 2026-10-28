@@ -43,7 +43,7 @@ export default function OutdoorHospitalityPage() {
         <div>
           <div className="eyebrow">Why we own it</div><h2 style={{ marginTop: '14px' }}>Our pilot in outdoor hospitality.</h2><div className="rule"></div>
           <p className="lede small">We bought Alice Springs in August 2022 as a pilot. Before expanding acquisitions in outdoor hospitality, we wanted to understand the industry from the inside: how a resort-style RV park earns its revenue, runs its seasons and staffs its operations.</p>
-          <p className="lede small" style={{ marginTop: '16px' }}>So we operate it ourselves, with the same approach we use at our apartment communities: improve the property, build systems, and protect the asset.</p>
+          <p className="lede small" style={{ marginTop: '16px' }}>So we operate it ourselves, with an approach similar to the one we use at our apartment communities: improve the property, build systems, and protect the asset.</p>
           <p style={{ marginTop: '16px' }}><Tag kind="DRAFT" /> <Tag kind="COUNSEL">“before expanding acquisitions” is forward-looking</Tag></p>
         </div>
         <div className="ph32"><img src={entrance.src} alt={entrance.alt} loading="lazy" /></div>
