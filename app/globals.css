@@ -371,9 +371,9 @@ code{font-size:.9em;background:#f1efe6;padding:1px 4px}
 .amenity-list li{padding:14px 0;border-bottom:1px solid #d4d6d9;font-size:15px}
 @media (max-width:760px){.holdings-tabs a{padding:12px 10px;font-size:11px}.amenity-list{grid-template-columns:1fr}}
 .oh-hero{padding:0;background:#000}
-.oh-hero img{width:100%;height:min(62vh,620px);object-fit:cover}
+.oh-hero img{width:100%;height:auto;max-height:640px;object-fit:cover}
 .gal.gal3{grid-template-columns:repeat(4,1fr)}
-@media (max-width:760px){.gal.gal3{grid-template-columns:1fr 1fr}.oh-hero img{height:300px}}
+@media (max-width:760px){.gal.gal3{grid-template-columns:1fr 1fr}.oh-hero img{height:auto}}
 .oh-result{margin-top:40px;border-top:1px solid #3a3c40;padding-top:28px;display:flex;gap:28px;align-items:baseline;flex-wrap:wrap}
 .oh-result strong{font:500 40px/1 var(--serif);color:#fff}
 .oh-result span{color:#b5b8be;font-size:16px}

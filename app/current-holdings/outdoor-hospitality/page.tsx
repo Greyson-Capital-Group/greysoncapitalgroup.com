@@ -13,7 +13,7 @@ export const metadata = {
 // Deliberately excluded: revenue, occupancy, debt, rates, expansion plans (performance / forward-looking).
 export default function OutdoorHospitalityPage() {
   if (!isVisible('aliceSprings')) notFound();
-  const [aerial, pool, lodge, entrance, jump, store] = a.photos as { src: string; alt: string }[];
+  const [aerial, , pool, lodge, entrance, jump, store] = a.photos as { src: string; alt: string }[];
   return (
     <>
       <section className="page-hero damask"><div className="wrap">

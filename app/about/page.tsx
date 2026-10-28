@@ -38,7 +38,7 @@ export default function AboutPage() {
           <p className="lede small">Greyson also asset-manages Alice Springs RV Park &amp; Resort, a 178-acre resort campground in Ionia, Michigan, acquired in 2022 with our principals and investors in the ownership group. It is our pilot in outdoor hospitality: a way to learn the industry's operations from the inside before expanding acquisitions there, run with a similar playbook to our apartments.</p>
           <p style={{ marginTop: '14px' }}><Tag kind="DRAFT" /></p>
           <div className="btn-row"><a className="btn btn-outline" href="/current-holdings/outdoor-hospitality">The Alice Springs story</a></div></div>
-        <div className="ph32"><img src="/img/alice-springs-aerial-lake.jpg" alt="Aerial view of the lake and waterfront cabins at Alice Springs RV Park & Resort" loading="lazy" /></div>
+        <div className="ph32"><img src="/img/alice-springs-fall-aerial.jpg" alt="Fall sunrise aerial of the lake and cabins at Alice Springs RV Park & Resort" loading="lazy" /></div>
       </div></section>
 
       <section><div className="wrap">
