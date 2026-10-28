@@ -285,33 +285,61 @@
     "slug": "outdoor-hospitality",
     "name": "Alice Springs RV Park & Resort",
     "type": "Outdoor hospitality",
-    "summary": "Greyson's principals also own and operate Alice Springs RV Park & Resort in Ionia, Michigan, using the same playbook as our apartments: improve the property, build systems, and protect the asset.",
+    "summary": "Alice Springs RV Park & Resort in Ionia, Michigan is our pilot in outdoor hospitality, acquired in August 2022 and run by Greyson's principals.",
     "summaryTag": "DRAFT",
-    "ownershipNote": "Confirm owner wording: Greyson entity vs principals personally, and whether outside investors are in it (counsel).",
+    "ownershipNote": "Owner is Alice Springs Campground LLC, which has outside equity holders. Wording says 'run by Greyson's principals'; counsel to confirm this doesn't read as an offering.",
     "location": "Ionia, Michigan",
     "address": "5087 Alice Ct, Ionia, MI 48846",
     "access": "Near I-96 and M-66, between Grand Rapids and Lansing",
-    "rvSites": 158,
-    "cabins": 10,
-    "sitesSource": "Campspot listing, Oct 2026: confirm current count",
-    "lake": "5-acre lake",
+    "lake": "Private catch-and-release lake",
     "season": "Spring through fall",
     "amenities": [
-      "Pool",
-      "Jumping pillow",
-      "Hot tub and sauna",
-      "Beach and 5-acre lake",
-      "Fishing",
-      "Pickleball",
-      "Clubhouse and arcade",
-      "On-site bar and snack stand",
-      "Food trucks and themed weekends",
-      "Dog park and playground",
-      "General store",
-      "Laundry and showers"
+      "Heated pool and hot tub",
+      "Private catch-and-release lake",
+      "Golf-cart trails and rentals",
+      "Jump pad and playground",
+      "Gem mining sluice",
+      "Pickleball, basketball, shuffleboard",
+      "Campfire Canteen and on-site bar",
+      "Camp store",
+      "Themed weekends, spring through Halloween",
+      "Dog park",
+      "Rustic and deluxe waterfront cabins",
+      "Seasonal sites"
     ],
     "website": "https://www.alicespringsrvpark.com/",
-    "photos": []
+    "photos": [
+      {
+        "src": "/img/alice-springs-aerial-lake.jpg",
+        "alt": "Aerial view of the lake and waterfront cabins at Alice Springs RV Park & Resort"
+      },
+      {
+        "src": "/img/alice-springs-pool-aerial.jpg",
+        "alt": "Aerial view of the resort pool and hot tub at Alice Springs"
+      },
+      {
+        "src": "/img/alice-springs-lodge.jpg",
+        "alt": "Lodge lounge with stone fireplace at Alice Springs"
+      },
+      {
+        "src": "/img/alice-springs-entrance.jpg",
+        "alt": "Alice Springs welcome wagon sign at the park entrance"
+      },
+      {
+        "src": "/img/alice-springs-jump-pad.jpg",
+        "alt": "Jump pad and play area at Alice Springs"
+      },
+      {
+        "src": "/img/alice-springs-camp-store.jpg",
+        "alt": "Camp store at Alice Springs"
+      }
+    ],
+    "acquired": "2022-08",
+    "acres": 178,
+    "rvSitesLabel": "150+",
+    "rvSitesNote": "Park's own site says 150+ full-hookup RV sites; Campspot shows 158 active (181 total). Using 150+.",
+    "cabinsLabel": "Rustic & deluxe",
+    "photoNote": "Photos are the park's August 2025 professional shoot (from the park's website). Confirm the photographer's license covers use on greysoncapitalgroup.com."
   },
   "_private": "IRRs, capital totals and the Woodmere/Ridgeway outcome wording are not in this public repo. They load at build time from the GREYSON_PRIVATE_CONTENT environment variable (see content/private.example.json)."
 }

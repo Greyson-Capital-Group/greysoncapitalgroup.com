@@ -370,3 +370,7 @@ code{font-size:.9em;background:#f1efe6;padding:1px 4px}
 .amenity-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
 .amenity-list li{padding:14px 0;border-bottom:1px solid #d4d6d9;font-size:15px}
 @media (max-width:760px){.holdings-tabs a{padding:12px 10px;font-size:11px}.amenity-list{grid-template-columns:1fr}}
+.oh-hero{padding:0;background:#000}
+.oh-hero img{width:100%;height:min(62vh,620px);object-fit:cover}
+.gal.gal3{grid-template-columns:repeat(4,1fr)}
+@media (max-width:760px){.gal.gal3{grid-template-columns:1fr 1fr}.oh-hero img{height:300px}}
