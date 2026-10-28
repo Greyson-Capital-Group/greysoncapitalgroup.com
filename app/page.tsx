@@ -9,11 +9,6 @@ export default function IndexPage() {
   return (
     <>
       <Hero variant={flags.heroVariant} />
-      {SHOW_REVIEW_NOTES && (
-        <div className="review-strip"><div className="wrap">
-          <Tag kind="JUSTIN">hero A or B · showing {flags.heroVariant} (recommended: A)</Tag> <a href="/hero-options">Compare hero options A and B →</a>
-        </div></div>
-      )}
 
       <section className="proof"><div className="wrap">
         <div className="item"><strong>{n(metrics.held)}</strong><span>Units held today · {metrics.heldDeals} holdings in Memphis, TN</span></div>
