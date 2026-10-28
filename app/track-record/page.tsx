@@ -2,7 +2,7 @@ import { PartCard, PortfolioHeader, SoldCard } from '@/components/Cards';
 import FilterGrid from '@/components/FilterGrid';
 import { Confirm, Gate, Tag } from '@/components/Flags';
 import { capital, copy, deal, flags, fmtMonth, isVisible, metrics, n, soldDeals } from '@/lib/content';
-import { SCHEDULE_URL, SHOW_REVIEW_NOTES } from '@/data/site';
+import { SCHEDULE_ENABLED, SCHEDULE_URL, SHOW_REVIEW_NOTES } from '@/data/site';
 import Ledger from '@/components/Ledger';
 
 export const metadata = { title: 'Track Record' };
@@ -71,7 +71,7 @@ export default function TrackRecordPage() {
 
       <section className="cta-band black damask"><div className="wrap">
         <div className="eyebrow light">Accredited investors</div><h2>Ask us about any deal on this page.</h2>
-        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a><a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a></div>
+        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a>{SCHEDULE_ENABLED && <a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a>}</div>
       </div></section>
     </>
   );

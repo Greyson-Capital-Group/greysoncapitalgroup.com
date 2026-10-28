@@ -1,5 +1,5 @@
 import { InvestorForm } from '@/components/Forms';
-import { JUNIPER_URL, SCHEDULE_URL } from '@/data/site';
+import { JUNIPER_URL, SCHEDULE_ENABLED, SCHEDULE_URL } from '@/data/site';
 export const metadata = { title: 'Investors' };
 
 export default function InvestorsPage() {
@@ -7,9 +7,9 @@ export default function InvestorsPage() {
     <>
 <section className="page-hero damask"><div className="wrap">
   <div className="crumbs">Home / Investors</div><div className="eyebrow light">For accredited investors</div>
-  <h1>Invest alongside an operator.</h1>
+  <h1>Invest with an operator.</h1>
   <p className="lede">We work with accredited individuals, family offices and smaller institutions. Start with a short inquiry.</p>
-  <div className="btn-row"><a className="btn btn-silver" href="#inquiry">Accredited Investor Inquiry</a><a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a></div>
+  <div className="btn-row"><a className="btn btn-silver" href="#inquiry">Accredited Investor Inquiry</a>{SCHEDULE_ENABLED && <a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a>}</div>
   <p className="secondary-link"><a href={JUNIPER_URL}>Existing investors: log in to Juniper Square →</a></p>
 </div></section>
 
@@ -27,7 +27,7 @@ export default function InvestorsPage() {
   <div className="steps four" style={{marginTop:'48px'}}>
     <div className="step"><div className="n">01</div><h3>Inquire</h3><p>Submit the short form below.</p></div>
     <div className="step"><div className="n">02</div><h3>Confirm</h3><p>We confirm accredited status before sharing details.</p></div>
-    <div className="step"><div className="n">03</div><h3>Talk</h3><p>A call with the principals about fit and goals.</p></div>
+    <div className="step"><div className="n">03</div><h3>Talk</h3><p>We follow up to set a call with the principals about fit and goals.</p></div>
     <div className="step"><div className="n">04</div><h3>Review</h3><p>When an opportunity is available, materials are shared in the investor portal.</p></div>
   </div>
 </div></section>
@@ -48,7 +48,7 @@ export default function InvestorsPage() {
         <ul className="pill-list" style={{marginTop:'6px'}}>
           <li style={{borderColor:'#3a3c40'}}><b>—</b><span style={{color:'#cfd1d4'}}>Direct access to the principals</span></li>
           <li style={{borderColor:'#3a3c40'}}><b>—</b><span style={{color:'#cfd1d4'}}>Portal-based documents and updates</span></li>
-          <li style={{borderColor:'#3a3c40'}}><b>—</b><span style={{color:'#cfd1d4'}}><span className="note note-justin">JUSTIN — reporting cadence</span></span></li>
+          <li style={{borderColor:'#3a3c40'}}><b>—</b><span style={{color:'#cfd1d4'}}>Monthly or quarterly updates, by asset</span></li>
         </ul>
       </div>
     </div>
@@ -61,7 +61,7 @@ export default function InvestorsPage() {
     <div><h4>Who can invest?</h4><p>Accredited investors only. We confirm status before sharing offering details.</p></div>
     <div><h4>Is there an offering open now?</h4><p>We do not post offerings on this site. Submit an inquiry and we will tell you directly.</p></div>
     <div><h4>Where are returns reported?</h4><p>In the investor portal, to investors. We do not publish performance for communities we still hold.</p></div>
-    <div><h4>What is the minimum investment?</h4><p><span className="note note-counsel">COUNSEL + JUSTIN — minimum investment</span></p></div>
+    <div><h4>How often do you report?</h4><p>Monthly or quarterly updates, depending on the asset and where it is in the business plan. Properties under heavy renovation report monthly until they stabilize.</p></div>
   </div>
 </div></section>
     </>

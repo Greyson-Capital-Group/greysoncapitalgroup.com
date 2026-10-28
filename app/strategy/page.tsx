@@ -1,6 +1,6 @@
 import { Tag } from '@/components/Flags';
 import { currentDeals, isOn, metrics } from '@/lib/content';
-import { SCHEDULE_URL } from '@/data/site';
+import { SCHEDULE_ENABLED, SCHEDULE_URL } from '@/data/site';
 
 export const metadata = { title: 'Strategy' };
 
@@ -72,7 +72,7 @@ export default function StrategyPage() {
 
       <section className="cta-band black damask"><div className="wrap">
         <div className="eyebrow light">Accredited investors</div><h2>See the strategy in our holdings.</h2>
-        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a><a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a></div>
+        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a>{SCHEDULE_ENABLED && <a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a>}</div>
         <p className="secondary-link"><a href="/current-holdings">See current holdings →</a></p>
       </div></section>
     </>

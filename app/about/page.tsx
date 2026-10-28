@@ -1,5 +1,5 @@
 import { Tag } from '@/components/Flags';
-import { SCHEDULE_URL } from '@/data/site';
+import { SCHEDULE_ENABLED, SCHEDULE_URL } from '@/data/site';
 
 export const metadata = { title: 'About' };
 
@@ -28,7 +28,7 @@ export default function AboutPage() {
         <div className="grid4" style={{ marginTop: '56px' }}>
           <div className="tile"><h4>Operator first</h4><p>We stay close to the property and the numbers.</p></div>
           <div className="tile"><h4>Straight reporting</h4><p>We tell investors the truth, good or bad.</p></div>
-          <div className="tile"><h4>Aligned</h4><p><Tag kind="JUSTIN + COUNSEL">GP co-invest statement</Tag></p></div>
+          <div className="tile"><h4>Accountable</h4><p>We report what went wrong as plainly as what went right. <Tag kind="DRAFT" /></p></div>
           <div className="tile"><h4>Long view</h4><p>Relationships with investors span more than one deal.</p></div>
         </div>
       </div></section>
@@ -66,7 +66,7 @@ export default function AboutPage() {
 
       <section className="cta-band black damask"><div className="wrap">
         <img src="/img/logo_G_silver.png" alt="" style={{ width: '64px', margin: '0 auto' }} loading="lazy" /><h2>Talk to the principals.</h2>
-        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a><a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a></div>
+        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a>{SCHEDULE_ENABLED && <a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a>}</div>
       </div></section>
     </>
   );

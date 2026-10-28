@@ -1,6 +1,6 @@
 import { Confirm, Gate } from '@/components/Flags';
 import { capital, copy, metrics, n } from '@/lib/content';
-import { JUNIPER_URL, SCHEDULE_URL } from '@/data/site';
+import { JUNIPER_URL, SCHEDULE_ENABLED, SCHEDULE_URL } from '@/data/site';
 
 /** Homepage hero. `variant` picks headline A or B from content/copy.json. */
 export default function Hero({ variant, label }: { variant: 'A' | 'B'; label?: string }) {
@@ -19,7 +19,7 @@ export default function Hero({ variant, label }: { variant: 'A' | 'B'; label?: s
         </div>
         <div className="btn-row">
           <a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a>
-          <a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a>
+          {SCHEDULE_ENABLED && <a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a>}
         </div>
         <p className="secondary-link"><a href={JUNIPER_URL}>Existing investors: log in to Juniper Square →</a></p>
       </div>
