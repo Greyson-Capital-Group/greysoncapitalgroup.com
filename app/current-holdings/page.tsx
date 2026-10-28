@@ -83,7 +83,6 @@ export default function CurrentHoldingsPage() {
             <div>
               <div className="eyebrow">Near the University of Memphis · Memphis, TN</div><h2 style={{ marginTop: '14px' }}>UM5</h2><div className="rule"></div>
               <p className="lede small">{um5.summary} <Tag kind={um5.summaryTag} /></p>
-              <p style={{ marginTop: '10px' }}><Tag kind="CONFIRM">{um5.unitSplitNote}</Tag></p>
               <table className="ledger" style={{ marginTop: '28px' }}><tbody>
                 {um5.communities!.map((c) => <tr key={c.slug} className="sub"><td>{c.name}</td><td className="num">{c.units}</td></tr>)}
                 <tr className="total"><td>Total units</td><td className="num">{um5.units}</td></tr>

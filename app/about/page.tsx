@@ -70,10 +70,13 @@ export default function AboutPage() {
         </div>
       </div></section>
 
-      <section className="paper review-only"><div className="wrap split">
+      {/* Multi-South named with permission (Justin, 10/28). Source: Multi-South company resume. */}
+      <section className="paper"><div className="wrap split">
         <div><div className="eyebrow">Partners</div><h2 style={{ marginTop: '14px' }}>Who we work with.</h2><div className="rule"></div>
-          <p className="lede small">Multi-South Management, our property management partner in Memphis. <Tag kind="JUSTIN">permission to name + logo</Tag></p></div>
-        <div className="grid3"><div style={{ height: '120px' }} className="placeholder"><span>Multi-South<br />logo needed</span></div></div>
+          <p className="lede small">Multi-South Management Services is our property management partner in Memphis and manages Greyson Groves. Founded in 2001 by veterans of the Memphis multifamily industry, Multi-South brings in-house renovation and management experience across the Southeast.</p>
+          <p style={{ marginTop: '14px' }}><Tag kind="DRAFT" /></p></div>
+        <div className="review-only"><div style={{ height: '120px' }} className="placeholder"><span>Multi-South<br />logo needed</span></div>
+          <p style={{ marginTop: '10px' }}><Tag kind="SUPPLY">Multi-South logo file (not on the current site or in the Multi-South folder)</Tag></p></div>
       </div></section>
 
       <section className="cta-band black damask"><div className="wrap">
