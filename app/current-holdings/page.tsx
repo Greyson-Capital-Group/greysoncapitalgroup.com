@@ -1,10 +1,11 @@
 import { CommunityCard, CurrentCard } from '@/components/Cards';
 import FilterGrid, { type FilterItem } from '@/components/FilterGrid';
+import HoldingsTabs from '@/components/HoldingsTabs';
 import { Gate, Tag } from '@/components/Flags';
-import { aliceSprings, deal, flags, fmtMonth, isVisible, metrics, n, type Deal } from '@/lib/content';
+import { deal, flags, fmtMonth, isVisible, metrics, n, type Deal } from '@/lib/content';
 import { SCHEDULE_URL, SHOW_REVIEW_NOTES } from '@/data/site';
 
-export const metadata = { title: 'Current Holdings' };
+export const metadata = { title: 'Current Holdings · Multifamily' };
 
 function Detail({ d, children }: { d: Deal; children?: React.ReactNode }) {
   return (
@@ -55,6 +56,7 @@ export default function CurrentHoldingsPage() {
       <section className="page-hero damask"><div className="wrap">
         <div className="crumbs">Home / Current Holdings</div><div className="eyebrow light">Portfolio · Current</div>
         <h1>Current holdings.</h1>
+        <HoldingsTabs active="multifamily" />
         <p className="lede">{metrics.heldDeals} holdings. {n(metrics.held)} units. All in Memphis, Tennessee.</p>
       </div></section>
 
@@ -98,21 +100,6 @@ export default function CurrentHoldingsPage() {
         </div></section>
       </Gate>
 
-      <Gate flag="aliceSprings" label="Justin decides (recommended: keep hidden)">
-        <section className="dark" id="hospitality"><div className="wrap split">
-          <div>
-            <div className="eyebrow">Campground & hospitality</div><h2 style={{ marginTop: '14px' }}>{aliceSprings.name}</h2><div className="rule"></div>
-            <p className="lede small">{aliceSprings.summary} <Tag kind={aliceSprings.summaryTag} /></p>
-            <table className="ledger on-dark" style={{ marginTop: '28px' }}><tbody>
-              <tr><td>Type</td><td className="right">RV park and campground</td></tr>
-              <tr><td>Location</td><td className="right">{aliceSprings.location}</td></tr>
-              <tr><td>Sites</td><td className="right"><Tag kind="JUSTIN">site count</Tag></td></tr>
-              <tr><td>Counted in unit totals</td><td className="right">No</td></tr>
-            </tbody></table>
-          </div>
-          <div className="ph32"><div className="placeholder dark"><span>Photo needed<br />Alice Springs RV Park &amp; Resort</span></div></div>
-        </div></section>
-      </Gate>
 
       <section className="cta-band black damask"><div className="wrap">
         <div className="eyebrow light">Accredited investors</div><h2>Want the operating detail?</h2>

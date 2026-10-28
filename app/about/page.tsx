@@ -33,6 +33,14 @@ export default function AboutPage() {
         </div>
       </div></section>
 
+      <section className="paper"><div className="wrap split">
+        <div><div className="eyebrow">Beyond multifamily</div><h2 style={{ marginTop: '14px' }}>Outdoor hospitality.</h2><div className="rule"></div>
+          <p className="lede small">Greyson's principals also own and operate Alice Springs RV Park &amp; Resort in Ionia, Michigan. It is our pilot in outdoor hospitality: a way to learn the industry's operations from the inside before expanding acquisitions there, run with the same playbook as our apartments.</p>
+          <p style={{ marginTop: '14px' }}><Tag kind="DRAFT" /></p>
+          <div className="btn-row"><a className="btn btn-outline" href="/current-holdings/outdoor-hospitality">The Alice Springs story</a></div></div>
+        <div className="ph32" style={{ position: 'relative' }}><div className="brand-block" role="img" aria-label="Alice Springs RV Park & Resort"><img src="/img/logo_G_silver.png" alt="" /></div></div>
+      </div></section>
+
       <section><div className="wrap">
         <div className="section-head"><div><div className="eyebrow">Leadership</div><h2>The team.</h2></div></div>
         <div className="team">

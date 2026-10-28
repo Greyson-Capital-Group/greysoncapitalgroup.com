@@ -282,13 +282,36 @@
   ],
   "aliceSprings": {
     "flag": "aliceSprings",
+    "slug": "outdoor-hospitality",
     "name": "Alice Springs RV Park & Resort",
-    "type": "Campground & hospitality",
+    "type": "Outdoor hospitality",
     "summary": "Greyson's principals also own and operate Alice Springs RV Park & Resort in Ionia, Michigan, using the same playbook as our apartments: improve the property, build systems, and protect the asset.",
+    "summaryTag": "DRAFT",
+    "ownershipNote": "Confirm owner wording: Greyson entity vs principals personally, and whether outside investors are in it (counsel).",
     "location": "Ionia, Michigan",
-    "sites": "",
-    "photos": [],
-    "summaryTag": "DRAFT"
+    "address": "5087 Alice Ct, Ionia, MI 48846",
+    "access": "Near I-96 and M-66, between Grand Rapids and Lansing",
+    "rvSites": 158,
+    "cabins": 10,
+    "sitesSource": "Campspot listing, Oct 2026: confirm current count",
+    "lake": "5-acre lake",
+    "season": "Spring through fall",
+    "amenities": [
+      "Pool",
+      "Jumping pillow",
+      "Hot tub and sauna",
+      "Beach and 5-acre lake",
+      "Fishing",
+      "Pickleball",
+      "Clubhouse and arcade",
+      "On-site bar and snack stand",
+      "Food trucks and themed weekends",
+      "Dog park and playground",
+      "General store",
+      "Laundry and showers"
+    ],
+    "website": "https://www.alicespringsrvpark.com/",
+    "photos": []
   },
   "_private": "IRRs, capital totals and the Woodmere/Ridgeway outcome wording are not in this public repo. They load at build time from the GREYSON_PRIVATE_CONTENT environment variable (see content/private.example.json)."
 }

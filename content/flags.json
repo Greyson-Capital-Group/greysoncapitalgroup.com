@@ -6,7 +6,7 @@
   "irr": false,
   "woodmere": true,
   "ridgeway": true,
-  "aliceSprings": false,
+  "aliceSprings": true,
   "latestNews": true,
   "heroVariant": "A",
   "dealFinancials": false,

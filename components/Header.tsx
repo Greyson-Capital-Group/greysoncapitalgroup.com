@@ -18,7 +18,7 @@ export default function Header() {
         </button>
         <nav id="site-nav" className={open ? 'nav open' : 'nav'}>
           {NAV.map((n) => (
-            <Link key={n.href} href={n.href} className={path === n.href ? 'active' : ''} onClick={() => setOpen(false)}>
+            <Link key={n.href} href={n.href} className={path === n.href || path.startsWith(n.href + '/') ? 'active' : ''} onClick={() => setOpen(false)}>
               {n.label}
             </Link>
           ))}
