@@ -223,7 +223,6 @@
           "name": "Kings Tree",
           "units": 63,
           "city": "Orange Park, FL",
-          "nameNote": "\"Kings Tree\" (TR) vs \"Kings Trees\" (legacy site): confirm spelling",
           "photoNote": "Photo needed: only a 259px legacy image exists."
         },
         {
@@ -262,7 +261,6 @@
           "alt": "Woodmere Reserve apartments"
         }
       ],
-      "outcomeTag": "DRAFT + COUNSEL",
       "photoOwnershipConfirm": true,
       "outcome": "200 units in Montgomery, Alabama, sold in 2025. This investment did not return investor capital, and we hold ourselves accountable for it."
     },
@@ -275,9 +273,8 @@
       "market": "",
       "photos": [],
       "marketConfirm": true,
-      "outcomeTag": "DRAFT + COUNSEL",
       "photoNote": "Photo needed.",
-      "outcome": "A 568-unit community where Greyson's principals raised capital and managed operations. The interest has since been transferred, and it is not a current holding."
+      "outcome": "A 568-unit community where Greyson raised part of the capital and assisted with operations before exiting the interest. It is not a current holding."
     }
   ],
   "aliceSprings": {
@@ -344,5 +341,19 @@
     "rvSitesNote": "Park's own site says 150+ full-hookup RV sites; Campspot shows 158 active (181 total). Using 150+.",
     "cabinsLabel": "Rustic & deluxe"
   },
-  "_private": "IRRs, capital totals and the Woodmere/Ridgeway outcome wording are not in this public repo. They load at build time from the GREYSON_PRIVATE_CONTENT environment variable (see content/private.example.json)."
+  "_private": "IRRs, capital totals and the Woodmere/Ridgeway outcome wording are not in this public repo. They load at build time from the GREYSON_PRIVATE_CONTENT environment variable (see content/private.example.json).",
+  "capital": {
+    "equityRaised": {
+      "value": 33861662,
+      "display": "$33.9M",
+      "label": "Lifetime equity raised",
+      "detail": "$33,861,662"
+    },
+    "capitalDeployed": {
+      "value": 134070000,
+      "display": "$134.1M",
+      "label": "Lifetime capital deployed (purchase + CapEx)",
+      "detail": "$92.26M purchase + $41.81M CapEx"
+    }
+  }
 }

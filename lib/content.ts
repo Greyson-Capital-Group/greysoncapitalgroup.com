@@ -7,7 +7,7 @@ import { SHOW_REVIEW_NOTES } from '@/data/site';
 import fs from 'node:fs';
 import path from 'node:path';
 
-// Figures not cleared for public view (IRRs, capital totals, Woodmere/Ridgeway wording) are kept
+// Figures not cleared for public view (IRRs, deal financials, hospitality revenue) are kept
 // out of the public repo. They load at build time from the GREYSON_PRIVATE_CONTENT env var
 // (set in Netlify), or from a local, gitignored content/private.json.
 type Money = { value: number; display: string; label: string; detail?: string; flag?: string };
@@ -49,9 +49,11 @@ export type FlagName = 'um5Public' | 'lifetimeTotal' | 'capitalTotals' | 'irr' |
 export const flags = flagsJson as Record<FlagName, boolean> & { heroVariant: 'A' | 'B' };
 export const copy = copyJson;
 const missing = (label: string): Money => ({ value: 0, display: '—', label, detail: 'Private figure not loaded on this build' });
+// Capital totals are public (approved by Justin 2026-10-28); returns stay private.
+const pubCapital = (portfolio as { capital?: Record<'equityRaised' | 'capitalDeployed', Money> }).capital;
 export const capital = {
-  equityRaised: priv.capital?.equityRaised ?? missing('Lifetime equity raised'),
-  capitalDeployed: priv.capital?.capitalDeployed ?? missing('Lifetime capital deployed (purchase + CapEx)'),
+  equityRaised: pubCapital?.equityRaised ?? priv.capital?.equityRaised ?? missing('Lifetime equity raised'),
+  capitalDeployed: pubCapital?.capitalDeployed ?? priv.capital?.capitalDeployed ?? missing('Lifetime capital deployed (purchase + CapEx)'),
 };
 export const aliceSprings = { ...portfolio.aliceSprings, ...(priv.aliceSprings ?? {}) } as typeof portfolio.aliceSprings & { revenueHeadline?: string; revenueClaim?: string; revenueNote?: string };
 export const deals = (portfolio.deals as Deal[]).map((d) => ({ ...d, ...(priv.deals?.[d.slug] ?? {}) }));

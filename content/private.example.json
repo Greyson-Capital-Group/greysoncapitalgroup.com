@@ -1,19 +1,5 @@
 {
   "_readme": "Shape of the private content. Real values live only in the Netlify env var GREYSON_PRIVATE_CONTENT and in a local content/private.json (gitignored).",
-  "capital": {
-    "equityRaised": {
-      "value": 0,
-      "display": "$\u2014",
-      "label": "Lifetime equity raised",
-      "flag": "capitalTotals"
-    },
-    "capitalDeployed": {
-      "value": 0,
-      "display": "$\u2014",
-      "label": "Lifetime capital deployed (purchase + CapEx)",
-      "flag": "capitalTotals"
-    }
-  },
   "deals": {
     "clearbrook": {
       "irr": 0

@@ -28,13 +28,13 @@ export default function TrackRecordPage() {
         <Ledger />
       </div></section>
 
-      <Gate flag="capitalTotals" label="Justin + counsel">
+      <Gate flag="capitalTotals">
         <section className="paper"><div className="wrap split">
           <div><div className="eyebrow">Capital</div><h2 style={{ marginTop: '14px' }}>Lifetime capital.</h2><div className="rule"></div>
-            <p className="lede small">Totals across every multifamily deal above, including pending items. <Confirm>Counsel: confirm presentation</Confirm></p></div>
+            <p className="lede small">Totals across every multifamily deal on this page.</p></div>
           <table className="ledger"><tbody>
             <tr><td>{capital.equityRaised.label}</td><td className="num">{capital.equityRaised.display}</td></tr>
-            {capital.equityRaised.detail && <tr className="sub"><td colSpan={2}>{capital.equityRaised.detail} exact</td></tr>}
+            {capital.equityRaised.detail && <tr className="sub"><td colSpan={2}>{capital.equityRaised.detail}</td></tr>}
             <tr><td>{capital.capitalDeployed.label}</td><td className="num">{capital.capitalDeployed.display}</td></tr>
             <tr className="sub"><td colSpan={2}>{capital.capitalDeployed.detail}</td></tr>
           </tbody></table>
