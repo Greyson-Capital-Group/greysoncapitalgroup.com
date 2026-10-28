@@ -19,7 +19,7 @@ export default function TrackRecordPage() {
       </div></section>
 
       <section id="methodology"><div className="wrap split methodology">
-        <div><div className="eyebrow">How we count</div><h2 style={{ marginTop: '14px' }}>{n(metrics.confirmed)} multifamily units.</h2><div className="rule"></div>
+        <div><div className="eyebrow">Portfolio summary</div><h2 style={{ marginTop: '14px' }}>{n(metrics.confirmed)} multifamily units.</h2><div className="rule"></div>
           <p className="lede small"><sup>¹</sup> {copy.methodology}</p>
           {SHOW_REVIEW_NOTES && metrics.pending > 0 && (
             <p style={{ marginTop: '16px' }}><Tag kind="JUSTIN">Striped rows are hidden at launch and left out of the total. With every row approved the total is {n(metrics.lifetime)}.</Tag></p>
