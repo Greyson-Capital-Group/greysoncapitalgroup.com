@@ -59,7 +59,7 @@ export default function CurrentHoldingsPage() {
       </div></section>
 
       <section className="proof"><div className="wrap">
-        <div className="item"><strong>{n(metrics.held)}</strong><span>Confirmed units held</span></div>
+        <div className="item"><strong>{n(metrics.held)}</strong><span>Units held today</span></div>
         <div className="item"><strong>{metrics.heldDeals}</strong><span>Holdings (Greyson Groves counts as one)</span></div>
         <div className="item"><strong>Memphis</strong><span>Southeast Memphis · Whitehaven · Greenline</span></div>
         <div className="item"><Gate flag="um5Public" label="UM5"><strong>{n(metrics.heldAll)}</strong><span>Units held incl. UM5 ({um5.units})</span></Gate></div>

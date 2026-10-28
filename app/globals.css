@@ -358,3 +358,8 @@ code{font-size:.9em;background:#f1efe6;padding:1px 4px}
 .dark .filters button.on{background:#fff;color:#111;border-color:#fff}
 @media (max-width:760px){.portfolio-head{grid-template-columns:1fr;padding:20px}}
 .cards>.card-cell.wide>.portfolio-head{display:grid}
+.ledger-assets .group-row th{padding-top:26px;color:var(--ink);border-bottom:1px solid #c9cbcf}
+.ledger-assets .group-row th.num{font:500 20px/1 var(--serif);text-align:right;letter-spacing:0}
+.ledger-assets td.indent{padding-left:30px;color:var(--muted)}
+.ledger-assets tr.sub td.num{font-size:17px;color:var(--muted)}
+.ledger-assets tr.gated-row td{background:repeating-linear-gradient(135deg,rgba(240,210,122,.10) 0 8px,transparent 8px 16px)}

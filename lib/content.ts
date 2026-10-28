@@ -68,19 +68,25 @@ export const soldDeals = deals.filter((d) => d.status === 'sold');
 const sum = (xs: Deal[]) => xs.reduce((a, d) => a + d.units, 0);
 
 // Confirmed = no pending flag on the deal.
+// Totals count every deal that is live on the public site: deals with no switch, plus deals whose
+// switch in flags.json is on. Approving UM5, Woodmere or Ridgeway raises the totals automatically.
 export const metrics = (() => {
-  const heldConfirmed = currentDeals.filter((d) => !d.flag);
-  const soldConfirmed = soldDeals.filter((d) => !d.flag);
-  const held = sum(heldConfirmed);
-  const sold = sum(soldConfirmed);
+  const heldLive = currentDeals.filter((d) => isOn(d.flag));
+  const soldLive = soldDeals.filter((d) => isOn(d.flag));
+  const priorLive = deals.filter((d) => d.status === 'prior' && isOn(d.flag));
+  const held = sum(heldLive);
+  const sold = sum(soldLive);
+  const prior = sum(priorLive);
   const heldAll = sum(currentDeals);
   const lifetime = sum(deals);
   return {
-    held, sold, confirmed: held + sold,
-    heldDeals: heldConfirmed.length, soldDeals: soldConfirmed.length,
+    held, sold, prior, confirmed: held + sold + prior,
+    heldDeals: heldLive.length, soldDeals: soldLive.length,
+    // Full-cycle exits 2021–2022 (Clearbrook, Millington, Florida 3); Woodmere is reported separately.
+    exits: soldDeals.filter((d) => !d.flag).length,
     heldAll, heldDealsAll: currentDeals.length,
-    lifetime, pending: lifetime - held - sold,
-    pendingDeals: deals.filter((d) => d.flag),
+    lifetime, pending: lifetime - held - sold - prior,
+    pendingDeals: deals.filter((d) => !isOn(d.flag)),
   };
 })();
 

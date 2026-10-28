@@ -2,7 +2,8 @@ import { PartCard, PortfolioHeader, SoldCard } from '@/components/Cards';
 import FilterGrid from '@/components/FilterGrid';
 import { Confirm, Gate, Tag } from '@/components/Flags';
 import { capital, copy, deal, flags, fmtMonth, isVisible, metrics, n, soldDeals } from '@/lib/content';
-import { SCHEDULE_URL } from '@/data/site';
+import { SCHEDULE_URL, SHOW_REVIEW_NOTES } from '@/data/site';
+import Ledger from '@/components/Ledger';
 
 export const metadata = { title: 'Track Record' };
 
@@ -18,20 +19,13 @@ export default function TrackRecordPage() {
       </div></section>
 
       <section id="methodology"><div className="wrap split methodology">
-        <div><div className="eyebrow">How we count</div><h2 style={{ marginTop: '14px' }}>{n(metrics.confirmed)} confirmed units.</h2><div className="rule"></div>
+        <div><div className="eyebrow">How we count</div><h2 style={{ marginTop: '14px' }}>{n(metrics.confirmed)} multifamily units.</h2><div className="rule"></div>
           <p className="lede small"><sup>¹</sup> {copy.methodology}</p>
-          <Gate flag="lifetimeTotal"><p className="lede small" style={{ marginTop: '16px' }}>{copy.lifetimeMethodology}</p></Gate>
+          {SHOW_REVIEW_NOTES && metrics.pending > 0 && (
+            <p style={{ marginTop: '16px' }}><Tag kind="JUSTIN">Striped rows are hidden at launch and left out of the total. With every row approved the total is {n(metrics.lifetime)}.</Tag></p>
+          )}
         </div>
-        <table className="ledger"><tbody>
-          <tr><th>Category</th><th>Communities</th><th className="num">Units</th></tr>
-          <tr><td>Held today</td><td>Twin Oaks · Lakeville · Greyson Groves</td><td className="num">{n(metrics.held)}</td></tr>
-          <tr><td>Sold</td><td>Clearbrook Village · Millington Oaks · Florida 3 Portfolio</td><td className="num">{n(metrics.sold)}</td></tr>
-          <tr className="total"><td>Confirmed total</td><td></td><td className="num">{n(metrics.confirmed)}</td></tr>
-          {isVisible('lifetimeTotal') && metrics.pendingDeals.map((d) => (
-            <tr key={d.slug} className="sub gated-row"><td><span className="pending">Pending</span></td><td>{d.name} · {d.status === 'current' ? 'held' : d.status === 'sold' ? 'sold' : 'prior interest'}</td><td className="num">{n(d.units)}</td></tr>
-          ))}
-          {isVisible('lifetimeTotal') && <tr className="total gated-row"><td>Lifetime incl. pending</td><td>{!flags.lifetimeTotal && <Confirm>Hidden at launch until flag “lifetimeTotal” is on</Confirm>}</td><td className="num">{n(metrics.lifetime)}</td></tr>}
-        </tbody></table>
+        <Ledger />
       </div></section>
 
       <Gate flag="capitalTotals" label="Justin + counsel">
@@ -68,7 +62,7 @@ export default function TrackRecordPage() {
       </div></section>
 
       {(isVisible('woodmere') || isVisible('ridgeway')) && <section id="pending"><div className="wrap">
-        <div className="section-head"><div><div className="eyebrow">Other multifamily history</div><h2>Shown when confirmed.</h2></div></div>
+        <div className="section-head"><div><div className="eyebrow">Other multifamily history</div><h2>The rest of our history.</h2></div></div>
         <div className="cards">
           <Gate flag="woodmere" label="Justin decides (recommended: show)"><SoldCard d={deal('woodmere')} showIrr={false} /></Gate>
           <Gate flag="ridgeway" label="hold until counsel OKs wording"><SoldCard d={deal('woods-at-ridgeway')} showIrr={false} /></Gate>

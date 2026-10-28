@@ -32,7 +32,7 @@ export default function StrategyPage() {
           <div className="step"><div className="n">03</div><h3>Exit or hold</h3><p>Let the improved property earn its next step.</p><ul>
             <li><b>Value through community:</b> safer workforce housing, lower turnover</li>
             <li>Higher NOI supports a refinance or an exit at a stronger valuation</li>
-            <li>{metrics.soldDeals} full-cycle exits, 2021–2022; {metrics.heldDeals} Memphis holdings today</li></ul></div>
+            <li>{metrics.exits} full-cycle exits, 2021–2022; {metrics.heldDeals} Memphis holdings today</li></ul></div>
         </div>
       </div></section>
 

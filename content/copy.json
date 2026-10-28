@@ -28,8 +28,7 @@
     "ledeTag": "DRAFT",
     "itemsTag": "DRAFT"
   },
-  "methodology": "Units are counted once per community, at the count owned. 'Held' is communities Greyson owns today; 'sold' is communities Greyson bought and sold. Communities still pending confirmation are excluded until confirmed. Outdoor hospitality is not counted.",
-  "lifetimeMethodology": "The lifetime total adds communities pending confirmation: UM5 (156 units, held), Woodmere Reserve (200 units, sold) and Woods at Ridgeway (568 units, a prior interest the principals raised capital for and managed).",
+  "methodology": "Units are counted once per community, at the number of units owned. Held means communities Greyson owns today; sold means communities Greyson bought and later sold. Outdoor hospitality is not included.",
   "news": [
     {
       "date": "2025-09",
