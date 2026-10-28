@@ -4,6 +4,12 @@ const sold = ['clearbrook-village-apartments', 'millington-oaks-apartments', 'ki
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Don't advertise the framework in response headers.
+  poweredByHeader: false,
+  // The site uses plain <img> tags with pre-compressed files, so the server-side image
+  // optimizer is switched off. That removes the /_next/image endpoint, the part of Next.js
+  // behind most 2025–2026 critical advisories.
+  images: { unoptimized: true },
   async redirects() {
     return [
       { source: '/about-greyson', destination: '/about', permanent: true },
