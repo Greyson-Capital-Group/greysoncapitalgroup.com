@@ -43,7 +43,7 @@ export default function CurrentHoldingsPage() {
     ...(showUm5
       ? um5.communities!.map((c) => ({
           id: c.slug,
-          tags: [c.neighborhood, 'Pending confirmation'],
+          tags: flags.um5Public ? [c.neighborhood] : [c.neighborhood, 'Pending confirmation'],
           node: <Gate flag="um5Public" label="UM5">{<CommunityCard c={c} acquired={um5.acquired} />}</Gate>,
         }))
       : []),
@@ -60,9 +60,9 @@ export default function CurrentHoldingsPage() {
 
       <section className="proof"><div className="wrap">
         <div className="item"><strong>{n(metrics.held)}</strong><span>Units held today</span></div>
-        <div className="item"><strong>{metrics.heldDeals}</strong><span>Holdings (Greyson Groves counts as one)</span></div>
-        <div className="item"><strong>Memphis</strong><span>Southeast Memphis · Whitehaven · Greenline</span></div>
-        <div className="item"><Gate flag="um5Public" label="UM5"><strong>{n(metrics.heldAll)}</strong><span>Units held incl. UM5 ({um5.units})</span></Gate></div>
+        <div className="item"><strong>{metrics.heldDeals}</strong><span>Holdings · Greyson Groves and UM5 each count as one</span></div>
+        <div className="item"><strong>Memphis</strong><span>Southeast Memphis · Whitehaven · Greenline · University of Memphis area</span></div>
+        <div className="item"><strong>{um5.units}</strong><span>Units at UM5 · five communities</span></div>
       </div></section>
 
       <section><div className="wrap">

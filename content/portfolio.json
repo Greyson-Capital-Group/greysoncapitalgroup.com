@@ -263,7 +263,8 @@
         }
       ],
       "outcomeTag": "DRAFT + COUNSEL",
-      "photoOwnershipConfirm": true
+      "photoOwnershipConfirm": true,
+      "outcome": "200 units in Montgomery, Alabama, sold in 2025. This investment did not return investor capital, and we hold ourselves accountable for it."
     },
     {
       "slug": "woods-at-ridgeway",
@@ -275,7 +276,8 @@
       "photos": [],
       "marketConfirm": true,
       "outcomeTag": "DRAFT + COUNSEL",
-      "photoNote": "Photo needed."
+      "photoNote": "Photo needed.",
+      "outcome": "A 568-unit community where Greyson's principals raised capital and managed operations. The interest has since been transferred, and it is not a current holding."
     }
   ],
   "aliceSprings": {

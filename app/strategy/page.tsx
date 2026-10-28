@@ -1,15 +1,13 @@
-import { Gate, Tag } from '@/components/Flags';
-import { currentDeals, deal, isVisible, metrics } from '@/lib/content';
+import { Tag } from '@/components/Flags';
+import { currentDeals, isOn, metrics } from '@/lib/content';
 import { SCHEDULE_URL } from '@/data/site';
 
 export const metadata = { title: 'Strategy' };
 
 // Copy follows the Fill List (S1–S6), drafted from the Greyson pitch deck (pp. 6–8, 12).
 export default function StrategyPage() {
-  const um5 = deal('um5');
-  const confirmedHeld = currentDeals.filter((d) => !d.flag);
-  const sizes = confirmedHeld.map((d) => d.units);
-  const um5Sizes = um5.communities!.map((c) => c.units);
+  // Community sizes across live holdings; portfolios count by community (Groves and UM5 are split).
+  const sizes = currentDeals.filter((d) => isOn(d.flag)).flatMap((d) => (d.communities ?? d.parts)?.map((c) => c.units) ?? [d.units]);
   return (
     <>
       <section className="page-hero damask"><div className="wrap">
@@ -53,8 +51,7 @@ export default function StrategyPage() {
         <div className="grid4" style={{ marginTop: '56px' }}>
           <div className="tile"><h4>Asset type</h4><p>B/C multifamily and distressed workforce housing.</p></div>
           <div className="tile"><h4>Size</h4><p>
-            Current holdings range from {Math.min(...sizes)} to {Math.max(...sizes)} units.
-            {isVisible('um5Public') && <Gate flag="um5Public" inline label="UM5"> With UM5: {Math.min(...um5Sizes, ...sizes)} to {Math.max(...sizes)} units.</Gate>}
+            Our communities today range from {Math.min(...sizes)} to {Math.max(...sizes)} units.
           </p></div>
           <div className="tile"><h4>Markets</h4><p>Logistics-driven markets: Memphis, Louisville, Jacksonville.</p></div>
           <div className="tile"><h4>Profile</h4><p>Value-add: buy at the right basis, improve, then refinance, sell or hold.</p></div>

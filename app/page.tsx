@@ -17,17 +17,9 @@ export default function IndexPage() {
 
       <section className="proof"><div className="wrap">
         <div className="item"><strong>{n(metrics.held)}</strong><span>Units held today · {metrics.heldDeals} holdings in Memphis, TN</span></div>
-        <div className="item"><strong>{n(metrics.sold)}</strong><span>Units sold · {metrics.exits} full-cycle exits, 2021–2022</span></div>
-        <div className="item"><strong>{n(metrics.confirmed)}</strong><span>Multifamily units held and sold <a href="/track-record#methodology" className="fn">¹</a></span></div>
-        {isVisible('lifetimeTotal') ? (
-          <div className="item">
-            <Gate flag="lifetimeTotal" label="Justin clears">
-              <strong>{n(metrics.lifetime)}</strong><span>Lifetime multifamily doors</span>
-            </Gate>
-          </div>
-        ) : (
-          <div className="item"><strong>Memphis</strong><span>Where we operate today</span></div>
-        )}
+        <div className="item"><strong>{n(metrics.sold)}</strong><span>Units sold · {metrics.exits} full-cycle exits 2021–2022, plus Woodmere 2025</span></div>
+        <div className="item"><strong>{n(metrics.confirmed)}</strong><span>Lifetime multifamily units <a href="/track-record#methodology" className="fn">¹</a></span></div>
+        <div className="item"><strong>Memphis</strong><span>Where we operate today</span></div>
       </div></section>
 
       <section><div className="wrap split">

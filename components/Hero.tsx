@@ -12,10 +12,7 @@ export default function Hero({ variant, label }: { variant: 'A' | 'B'; label?: s
         <h1 className="headline">{h.headline}</h1>
         <p className="hero-sub">{copy.hero.sub}</p>
         <div className="hero-metrics">
-          <div><strong>{n(metrics.confirmed)}</strong><span>Multifamily units held and sold · {n(metrics.held)} held, {n(metrics.sold)} sold <a href="/track-record#methodology" className="fn">¹</a></span></div>
-          <Gate flag="lifetimeTotal" label="Justin clears">
-            <div><strong>{n(metrics.lifetime)}</strong><span>Lifetime multifamily doors <a href="/track-record#methodology" className="fn">¹</a></span></div>
-          </Gate>
+          <div><strong>{n(metrics.confirmed)}</strong><span>Lifetime multifamily units · {n(metrics.held)} held today <a href="/track-record#methodology" className="fn">¹</a></span></div>
           <Gate flag="capitalTotals" label="counsel">
             <div><strong>{capital.capitalDeployed.display}</strong><span>{capital.capitalDeployed.label}</span></div>
           </Gate>
@@ -26,7 +23,7 @@ export default function Hero({ variant, label }: { variant: 'A' | 'B'; label?: s
         </div>
         <p className="secondary-link"><a href={JUNIPER_URL}>Existing investors: log in to Juniper Square →</a></p>
       </div>
-      <div className="hero-photo"><img src="/img/current_twin-oaks_exterior_01.jpg" alt="Twin Oaks Townhomes, East Memphis" fetchPriority="high" /><div className="cap">Twin Oaks Townhomes · East Memphis · 253 units</div></div>
+      <div className="hero-photo"><img src="/img/current_twin-oaks_exterior_01.jpg" alt="Twin Oaks Townhomes, Southeast Memphis" fetchPriority="high" /><div className="cap">Twin Oaks Townhomes · Southeast Memphis · 253 units</div></div>
     </div></section>
   );
 }
