@@ -273,19 +273,24 @@
       "market": "Montgomery, AL",
       "photos": [
         {
-          "src": "/img/woodmere-reserve-kitchen.jpg",
-          "alt": "Renovated kitchen at Woodmere Reserve, Montgomery"
+          "src": "/img/woodmere-reserve-exterior.jpg",
+          "alt": "Two-story apartment buildings with blue shutters at Woodmere Reserve, Montgomery"
         },
         {
-          "src": "/img/woodmere-reserve-pool.jpg",
-          "alt": "Pool at Woodmere Reserve, Montgomery"
+          "src": "/img/woodmere-reserve-leasing-office.jpg",
+          "alt": "Leasing office at Woodmere Reserve"
+        },
+        {
+          "src": "/img/woodmere-reserve-grounds.jpg",
+          "alt": "Walkways and lawns at Woodmere Reserve"
         },
         {
           "src": "/img/woodmere-reserve-grill-pavilion.jpg",
           "alt": "Grill and pergola at Woodmere Reserve"
         }
       ],
-      "outcome": "200 units in Montgomery, Alabama, sold in 2025. This investment did not return investor capital, and we hold ourselves accountable for it."
+      "outcome": "200 units in Montgomery, Alabama, sold in 2025. This investment did not return investor capital, and we hold ourselves accountable for it.",
+      "photoSource": "Professional photo set, June 2021 (Justin Richards Dropbox: Woodmere Reserve Pictures)"
     },
     {
       "slug": "woods-at-ridgeway",
