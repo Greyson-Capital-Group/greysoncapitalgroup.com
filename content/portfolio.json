@@ -201,8 +201,16 @@
       "acquired": "2019-06",
       "sold": "2022-04",
       "market": "Millington, TN",
-      "photos": [],
-      "photoNote": "Photo needed: only a 259px legacy image exists, and ownership is unconfirmed."
+      "photos": [
+        {
+          "src": "/img/millington-oaks-grounds.jpg",
+          "alt": "Brick buildings and playground at Millington Oaks, Millington, Tennessee"
+        },
+        {
+          "src": "/img/millington-oaks-model-unit.jpg",
+          "alt": "Model unit living and dining room at Millington Oaks"
+        }
+      ]
     },
     {
       "slug": "fl3",
