@@ -231,14 +231,22 @@
           "name": "Kings Tree",
           "units": 63,
           "city": "Orange Park, FL",
-          "photoNote": "Photo needed: only a 259px legacy image exists."
+          "photo": {
+            "src": "/img/fl3-kings-tree.jpg",
+            "alt": "Two-story apartment buildings at Kings Tree, Orange Park, Florida"
+          },
+          "photoSource": "Broker marketing photo (CBRE 2022 sale OM; Berkadia 2020 OM for Villas)"
         },
         {
           "slug": "park-place",
           "name": "Park Place",
           "units": 70,
-          "city": "Jacksonville, FL",
-          "photoNote": "Photo needed."
+          "city": "Orange Park, FL",
+          "photo": {
+            "src": "/img/fl3-park-place.jpg",
+            "alt": "Pool and clubhouse at Park Place, Orange Park, Florida"
+          },
+          "photoSource": "Broker marketing photo (CBRE 2022 sale OM; Berkadia 2020 OM for Villas)"
         },
         {
           "slug": "villas-at-cedar-creek",
@@ -246,9 +254,10 @@
           "units": 118,
           "city": "Jacksonville, FL",
           "photo": {
-            "src": "/img/villas-at-cedar-creek-courtyard.jpg",
-            "alt": "Courtyard and picnic area at Villas at Cedar Creek, Jacksonville"
-          }
+            "src": "/img/fl3-villas-at-cedar-creek.jpg",
+            "alt": "Courtyard with picnic tables at Villas at Cedar Creek, Jacksonville, Florida"
+          },
+          "photoSource": "Broker marketing photo (CBRE 2022 sale OM; Berkadia 2020 OM for Villas)"
         }
       ],
       "photos": [],
