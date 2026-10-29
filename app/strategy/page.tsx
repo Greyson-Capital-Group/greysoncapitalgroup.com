@@ -39,7 +39,7 @@ export default function StrategyPage() {
           <p className="lede small">Photos from our communities. Not renderings.</p>
           <p style={{ marginTop: '18px' }}><Tag kind="JUSTIN">before/after photo pairs (optional)</Tag></p></div>
         <div className="gal">
-          <div><img src="/img/current_twin-oaks_pavilion_04.jpg" alt="Grill pavilion at Twin Oaks Townhomes" loading="lazy" /></div>
+          <div><img src="/img/um5-university-highlands-interior.jpg" alt="Renovated kitchen and living room at University Highlands" loading="lazy" /></div>
           <div><img src="/img/current_highpoint-greenline_pool_02.jpg" alt="Pool at Highpoint at the Greenline" loading="lazy" /></div>
           <div><img src="/img/current_twin-oaks_entry_02.jpg" alt="Brick entry at Twin Oaks Townhomes" loading="lazy" /></div>
           <div><img src="/img/current_chickasaw-greenline_exterior_01.jpg" alt="Chickasaw at the Greenline building exterior" loading="lazy" /></div>
