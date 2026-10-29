@@ -377,3 +377,11 @@ code{font-size:.9em;background:#f1efe6;padding:1px 4px}
 .oh-result{margin-top:40px;border-top:1px solid #3a3c40;padding-top:28px;display:flex;gap:28px;align-items:baseline;flex-wrap:wrap}
 .oh-result strong{font:500 40px/1 var(--serif);color:#fff}
 .oh-result span{color:#b5b8be;font-size:16px}
+.partner-logo{display:flex;align-items:center;justify-content:center;padding:48px 32px;background:#fff;border:1px solid var(--line,#e2e0da)}
+.partner-logo img{width:100%;max-width:360px;height:auto}
+.team:has(> .person:only-child){grid-template-columns:minmax(0,1fr)}
+.team > .person:only-child{display:grid;grid-template-columns:minmax(220px,320px) 1fr;gap:0 48px;align-items:start}
+.team > .person:only-child > .ph{grid-row:1/span 9}
+@media (max-width:760px){.team > .person:only-child{display:block}}
+.team > .person:only-child > h3{margin-top:0}
+.team > .person:only-child p{font-size:16px;max-width:680px}

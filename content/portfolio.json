@@ -40,7 +40,7 @@
       "acquired": "2021-09",
       "market": "Memphis, TN · on the Greenline",
       "neighborhood": "Greenline",
-      "summary": "96 units across two Memphis communities on the Greenline, Chickasaw and Highpoint, held since 2021.",
+      "summary": "96 units across two Memphis communities on the Greenline, Chickasaw and Highpoint, held since 2021 and managed by Multi-South Management.",
       "parts": [
         {
           "name": "Chickasaw at the Greenline",
@@ -71,8 +71,7 @@
       ],
       "summaryTag": "DRAFT",
       "description": "Greyson Groves is two Memphis communities on the Greenline, Chickasaw and Highpoint, 96 units in all, acquired in 2021. We have invested in building improvements and run both with Multi-South Management.",
-      "descriptionTag": "DRAFT",
-      "descriptionNote": "JUSTIN: confirm Multi-South manages Groves"
+      "descriptionTag": "DRAFT"
     },
     {
       "slug": "lakeville",
@@ -171,15 +170,17 @@
           "neighborhood": "University of Memphis area",
           "summary": "13 units near the University of Memphis, part of UM5.",
           "photo": {
-            "src": "/img/um5-casa-del-rey-entry.jpg",
-            "alt": "Covered breezeway at Casa Del Rey"
+            "src": "/img/um5-casa-del-rey-exterior.jpg",
+            "alt": "Casa Del Rey, a two-story white brick building near the University of Memphis"
           },
-          "photoNote": "Exterior and interior photos needed. Only the breezeway shot exists.",
-          "summaryTag": "DRAFT"
+          "summaryTag": "DRAFT",
+          "photo2": {
+            "src": "/img/um5-casa-del-rey-interior.jpg",
+            "alt": "Living room at Casa Del Rey"
+          }
         }
       ],
-      "summaryTag": "DRAFT",
-      "unitSplitNote": "Per-community unit split is from the Aug 2024 broker executive summary (sums to 156). Timothy to confirm; TR has the 156 total only."
+      "summaryTag": "DRAFT"
     },
     {
       "slug": "clearbrook",
@@ -191,11 +192,10 @@
       "market": "Memphis, TN",
       "photos": [
         {
-          "src": "/img/clearbrook-village-01.jpg",
-          "alt": "Clearbrook Village apartments, Memphis"
+          "src": "/img/clearbrook-village-pool.jpg",
+          "alt": "Pool and clubhouse at Clearbrook Village, Memphis"
         }
-      ],
-      "photoOwnershipConfirm": true
+      ]
     },
     {
       "slug": "millington-oaks",
@@ -238,10 +238,9 @@
           "units": 118,
           "city": "Jacksonville, FL",
           "photo": {
-            "src": "/img/villas-at-cedar-creek-01.jpg",
-            "alt": "Villas at Cedar Creek apartments, Jacksonville"
-          },
-          "photoOwnershipConfirm": true
+            "src": "/img/villas-at-cedar-creek-courtyard.jpg",
+            "alt": "Courtyard and picnic area at Villas at Cedar Creek, Jacksonville"
+          }
         }
       ],
       "photos": [],
@@ -257,11 +256,14 @@
       "market": "Montgomery, AL",
       "photos": [
         {
-          "src": "/img/woodmere-reserve-01.jpg",
-          "alt": "Woodmere Reserve apartments"
+          "src": "/img/woodmere-reserve-kitchen.jpg",
+          "alt": "Renovated kitchen at Woodmere Reserve, Montgomery"
+        },
+        {
+          "src": "/img/woodmere-reserve-pool.jpg",
+          "alt": "Pool at Woodmere Reserve, Montgomery"
         }
       ],
-      "photoOwnershipConfirm": true,
       "outcome": "200 units in Montgomery, Alabama, sold in 2025. This investment did not return investor capital, and we hold ourselves accountable for it."
     },
     {
@@ -270,9 +272,8 @@
       "status": "prior",
       "units": 568,
       "flag": "ridgeway",
-      "market": "",
+      "market": "Memphis, TN",
       "photos": [],
-      "marketConfirm": true,
       "photoNote": "Photo needed.",
       "outcome": "A 568-unit community where Greyson raised part of the capital and assisted with operations before exiting the interest. It is not a current holding."
     }

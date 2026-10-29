@@ -1,5 +1,5 @@
-import { Gate, Tag } from '@/components/Flags';
-import { SCHEDULE_URL } from '@/data/site';
+import { Tag } from '@/components/Flags';
+import { SCHEDULE_ENABLED, SCHEDULE_URL } from '@/data/site';
 
 export const metadata = { title: 'About' };
 
@@ -28,7 +28,7 @@ export default function AboutPage() {
         <div className="grid4" style={{ marginTop: '56px' }}>
           <div className="tile"><h4>Operator first</h4><p>We stay close to the property and the numbers.</p></div>
           <div className="tile"><h4>Straight reporting</h4><p>We tell investors the truth, good or bad.</p></div>
-          <div className="tile"><h4>Aligned</h4><p><Tag kind="JUSTIN + COUNSEL">GP co-invest statement</Tag></p></div>
+          <div className="tile"><h4>Accountable</h4><p>We report what went wrong as plainly as what went right. <Tag kind="DRAFT" /></p></div>
           <div className="tile"><h4>Long view</h4><p>Relationships with investors span more than one deal.</p></div>
         </div>
       </div></section>
@@ -42,7 +42,7 @@ export default function AboutPage() {
       </div></section>
 
       <section><div className="wrap">
-        <div className="section-head"><div><div className="eyebrow">Leadership</div><h2>The team.</h2></div></div>
+        <div className="section-head"><div><div className="eyebrow">Leadership</div><h2>Our principal.</h2></div></div>
         <div className="team">
           <div className="person">
             <div className="ph" style={{ overflow: 'hidden' }}><img src="/img/justin-richards.jpg" alt="Justin Richards" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
@@ -53,32 +53,20 @@ export default function AboutPage() {
             <p style={{ marginTop: '12px' }}>He built Greyson so investors can work directly with the people doing the work, and always get a straight answer about their investment, good or bad.</p>
             <p style={{ marginTop: '10px' }}><Tag kind="DRAFT">bio: approved 10/28 except the last sentence (reworded)</Tag> <Tag kind="JUSTIN">confirm headshot</Tag></p>
           </div>
-          <Gate flag="davidShores" label="needs David's permission + headshot">
-            <div className="person">
-              <div className="ph placeholder"><span>Headshot needed<br />David Shores</span></div>
-              <h3>David Shores</h3><div className="role">Property Management Partner · Multi-South Management</div>
-              <p>David Shores has more than 30 years in multifamily management, renovation and ownership across Memphis and the Southeast. As President and CEO of Ledic Management Group he grew the company from 2,000 to more than 40,000 units, and in 2001 he founded Multi-South Management, which has overseen more than $300 million in apartment renovations. He is a CPA and spent six years at Arthur Young specializing in real estate and construction tax.</p>
-              <p style={{ marginTop: '10px' }}><Tag kind="DRAFT">from Sponsor Bio + deck p. 4</Tag></p>
-            </div>
-          </Gate>
-          {/* Third slot is preview-only until Justin names the person. */}
-          <div className="person review-only">
-            <div className="ph placeholder"><span>Headshot needed<br />Team member 3</span></div>
-            <h3><Tag kind="JUSTIN">name</Tag></h3><div className="role"><Tag kind="JUSTIN">title</Tag></div>
-            <p><Tag kind="JUSTIN">The 2025 Sponsor Bio lists Scott Pollmann (Acquisitions) and Dirk DeJonge (Investor Relations). Confirm whether either is still on the team.</Tag></p>
-          </div>
         </div>
       </div></section>
 
-      <section className="paper review-only"><div className="wrap split">
+      {/* Multi-South named, with logo, with permission (Justin, 10/28). Logo from multi-south.com. Founding year: Multi-South company resume. */}
+      <section className="paper"><div className="wrap split">
         <div><div className="eyebrow">Partners</div><h2 style={{ marginTop: '14px' }}>Who we work with.</h2><div className="rule"></div>
-          <p className="lede small">Multi-South Management, our property management partner in Memphis. <Tag kind="JUSTIN">permission to name + logo</Tag></p></div>
-        <div className="grid3"><div style={{ height: '120px' }} className="placeholder"><span>Multi-South<br />logo needed</span></div></div>
+          <p className="lede small">The Multi-South Group is our property management partner in Memphis and manages Greyson Groves. Founded in 2001 by veterans of the Memphis multifamily industry, Multi-South brings in-house renovation and management experience across the Southeast.</p>
+          <p style={{ marginTop: '14px' }}><Tag kind="DRAFT" /></p></div>
+        <div className="partner-logo"><a href="https://www.multi-south.com/" target="_blank" rel="noopener noreferrer"><img src="/img/multi-south-logo.png" alt="The Multi-South Group" width={630} height={130} loading="lazy" /></a></div>
       </div></section>
 
       <section className="cta-band black damask"><div className="wrap">
         <img src="/img/logo_G_silver.png" alt="" style={{ width: '64px', margin: '0 auto' }} loading="lazy" /><h2>Talk to the principals.</h2>
-        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a><a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a></div>
+        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a>{SCHEDULE_ENABLED && <a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a>}</div>
       </div></section>
     </>
   );
