@@ -294,9 +294,14 @@
       "units": 568,
       "flag": "ridgeway",
       "market": "Memphis, TN",
-      "photos": [],
-      "photoNote": "Photo needed.",
-      "outcome": "A 568-unit community where Greyson raised part of the capital and assisted with operations before exiting the interest. It is not a current holding."
+      "photos": [
+        {
+          "src": "/img/woods-at-ridgeway.jpg",
+          "alt": "Three-story apartment buildings at Woods at Ridgeway (now Hickory Grove Apartments), Memphis"
+        }
+      ],
+      "outcome": "A 568-unit community where Greyson raised part of the capital and assisted with operations before exiting the interest. It is not a current holding.",
+      "photoSource": "Multi-South marketing photo (multi-south.com, Hickory Grove Apartments)"
     }
   ],
   "aliceSprings": {
