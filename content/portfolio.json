@@ -220,7 +220,7 @@
       "slug": "fl3",
       "name": "Florida 3 Portfolio",
       "status": "sold",
-      "units": 251,
+      "units": 252,
       "acquired": "2019-07",
       "sold": "2022-08",
       "market": "Jacksonville area, FL",
@@ -229,7 +229,7 @@
         {
           "slug": "kings-tree",
           "name": "Kings Tree",
-          "units": 63,
+          "units": 64,
           "city": "Orange Park, FL",
           "photo": {
             "src": "/img/fl3-kings-tree.jpg",
@@ -294,7 +294,7 @@
     },
     {
       "slug": "woods-at-ridgeway",
-      "name": "Woods at Ridgeway",
+      "name": "Woods at Ridgeway (now Hickory Grove)",
       "status": "prior",
       "units": 568,
       "flag": "ridgeway",
