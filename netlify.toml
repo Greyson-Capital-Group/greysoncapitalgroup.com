@@ -6,6 +6,11 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# The live site (production branch = main) builds in launch mode: no review notes, no hidden-at-launch items.
+# Deploy Previews (pull requests) keep the review notes for Justin.
+[context.production.environment]
+  NEXT_PUBLIC_SHOW_REVIEW_NOTES = "false"
+
 # Security headers for every page.
 [[headers]]
   for = "/*"

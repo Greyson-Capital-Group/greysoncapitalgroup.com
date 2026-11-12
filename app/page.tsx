@@ -2,18 +2,13 @@ import Hero from '@/components/Hero';
 import { CurrentCard, SoldCard } from '@/components/Cards';
 import { Gate, Tag } from '@/components/Flags';
 import { copy, deal, flags, fmtMonth, isVisible, metrics, n, soldDeals, type FlagName } from '@/lib/content';
-import { JUNIPER_URL, SCHEDULE_URL, SHOW_REVIEW_NOTES } from '@/data/site';
+import { JUNIPER_URL, SCHEDULE_ENABLED, SCHEDULE_URL, SHOW_REVIEW_NOTES } from '@/data/site';
 
 export default function IndexPage() {
   const um5 = deal('um5');
   return (
     <>
       <Hero variant={flags.heroVariant} />
-      {SHOW_REVIEW_NOTES && (
-        <div className="review-strip"><div className="wrap">
-          <Tag kind="JUSTIN">hero A or B · showing {flags.heroVariant} (recommended: A)</Tag> <a href="/hero-options">Compare hero options A and B →</a>
-        </div></div>
-      )}
 
       <section className="proof"><div className="wrap">
         <div className="item"><strong>{n(metrics.held)}</strong><span>Units held today · {metrics.heldDeals} holdings in Memphis, TN</span></div>
@@ -81,7 +76,7 @@ export default function IndexPage() {
         <div className="eyebrow">Working with Greyson</div><h2 style={{ marginTop: '14px', maxWidth: '760px' }}>Built for investors who read the details.</h2>
         <div className="grid3" style={{ marginTop: '56px' }}>
           <div className="tile"><h4>Who we work with</h4><p>Accredited individuals, family offices and smaller institutions.</p></div>
-          <div className="tile"><h4>How we report</h4><p>Documents and updates live in the Juniper Square investor portal. <Tag kind="JUSTIN">reporting cadence</Tag></p></div>
+          <div className="tile"><h4>How we report</h4><p>Monthly or quarterly updates, depending on the asset and where it is in the business plan, delivered through the Juniper Square investor portal.</p></div>
           <div className="tile"><h4>How we start</h4><p>A short inquiry, accreditation confirmation, then a call with the principals.</p></div>
         </div>
       </div></section>
@@ -91,7 +86,7 @@ export default function IndexPage() {
         <div className="eyebrow light" style={{ marginTop: '28px' }}>Accredited investors</div>
         <h2>Start with a conversation.</h2>
         <p className="lede">Tell us about your investment goals. We will follow up directly.</p>
-        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a><a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a></div>
+        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a>{SCHEDULE_ENABLED && <a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a>}</div>
         <p className="secondary-link"><a href={JUNIPER_URL}>Existing investor login →</a></p>
       </div></section>
     </>

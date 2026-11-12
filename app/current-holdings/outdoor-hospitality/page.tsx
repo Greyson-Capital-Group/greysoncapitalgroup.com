@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import HoldingsTabs from '@/components/HoldingsTabs';
 import { Gate, Tag } from '@/components/Flags';
 import { aliceSprings as a, isVisible } from '@/lib/content';
-import { SCHEDULE_URL, SHOW_REVIEW_NOTES } from '@/data/site';
+import { SCHEDULE_ENABLED, SCHEDULE_URL, SHOW_REVIEW_NOTES } from '@/data/site';
 
 export const metadata = {
   title: 'Current Holdings · Outdoor Hospitality',
@@ -37,7 +37,7 @@ export default function OutdoorHospitalityPage() {
           <div className="eyebrow">Why we own it</div><h2 style={{ marginTop: '14px' }}>Our pilot in outdoor hospitality.</h2><div className="rule"></div>
           <p className="lede small">We bought Alice Springs in August 2022 as a pilot. Before expanding acquisitions in outdoor hospitality, we wanted to understand the industry from the inside: how a resort-style RV park earns its revenue, runs its seasons and staffs its operations.</p>
           <p className="lede small" style={{ marginTop: '16px' }}>So we operate it ourselves, with an approach similar to the one we use at our apartment communities: improve the property, build systems, and protect the asset.</p>
-          <p className="lede small" style={{ marginTop: '16px' }}>Like our multifamily deals, Greyson’s principals are part of the ownership group alongside investors, and Greyson asset-manages the property.</p>
+          <p className="lede small" style={{ marginTop: '16px' }}>Greyson’s principals are part of the ownership group alongside investors, and Greyson asset-manages the property.</p>
           <p style={{ marginTop: '16px' }}><Tag kind="DRAFT" /> <Tag kind="COUNSEL">“before expanding acquisitions” is forward-looking</Tag></p>
         </div>
         <div className="ph32"><img src={entrance.src} alt={entrance.alt} loading="lazy" /></div>
@@ -97,7 +97,7 @@ export default function OutdoorHospitalityPage() {
 
       <section className="cta-band black damask"><div className="wrap">
         <div className="eyebrow light">Accredited investors</div><h2>Talk to us about what comes next.</h2>
-        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a><a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a></div>
+        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a>{SCHEDULE_ENABLED && <a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a>}</div>
         <p className="secondary-link"><a href="/current-holdings">See our multifamily holdings →</a></p>
       </div></section>
     </>

@@ -3,7 +3,7 @@ import FilterGrid, { type FilterItem } from '@/components/FilterGrid';
 import HoldingsTabs from '@/components/HoldingsTabs';
 import { Gate, Tag } from '@/components/Flags';
 import { deal, flags, fmtMonth, isVisible, metrics, n, type Deal } from '@/lib/content';
-import { SCHEDULE_URL, SHOW_REVIEW_NOTES } from '@/data/site';
+import { SCHEDULE_ENABLED, SCHEDULE_URL, SHOW_REVIEW_NOTES } from '@/data/site';
 
 export const metadata = { title: 'Current Holdings · Multifamily' };
 
@@ -83,7 +83,6 @@ export default function CurrentHoldingsPage() {
             <div>
               <div className="eyebrow">Near the University of Memphis · Memphis, TN</div><h2 style={{ marginTop: '14px' }}>UM5</h2><div className="rule"></div>
               <p className="lede small">{um5.summary} <Tag kind={um5.summaryTag} /></p>
-              <p style={{ marginTop: '10px' }}><Tag kind="CONFIRM">{um5.unitSplitNote}</Tag></p>
               <table className="ledger" style={{ marginTop: '28px' }}><tbody>
                 {um5.communities!.map((c) => <tr key={c.slug} className="sub"><td>{c.name}</td><td className="num">{c.units}</td></tr>)}
                 <tr className="total"><td>Total units</td><td className="num">{um5.units}</td></tr>
@@ -104,7 +103,7 @@ export default function CurrentHoldingsPage() {
       <section className="cta-band black damask"><div className="wrap">
         <div className="eyebrow light">Accredited investors</div><h2>Want the operating detail?</h2>
         <p className="lede">Property-level reporting is shared with investors through the portal, not on this site.</p>
-        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a><a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a></div>
+        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a>{SCHEDULE_ENABLED && <a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a>}</div>
       </div></section>
     </>
   );

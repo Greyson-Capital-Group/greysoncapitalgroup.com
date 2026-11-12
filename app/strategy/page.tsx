@@ -1,6 +1,6 @@
 import { Tag } from '@/components/Flags';
 import { currentDeals, isOn, metrics } from '@/lib/content';
-import { SCHEDULE_URL } from '@/data/site';
+import { SCHEDULE_ENABLED, SCHEDULE_URL } from '@/data/site';
 
 export const metadata = { title: 'Strategy' };
 
@@ -39,7 +39,7 @@ export default function StrategyPage() {
           <p className="lede small">Photos from our communities. Not renderings.</p>
           <p style={{ marginTop: '18px' }}><Tag kind="JUSTIN">before/after photo pairs (optional)</Tag></p></div>
         <div className="gal">
-          <div><img src="/img/current_twin-oaks_pavilion_04.jpg" alt="Grill pavilion at Twin Oaks Townhomes" loading="lazy" /></div>
+          <div><img src="/img/um5-university-highlands-interior.jpg" alt="Renovated kitchen and living room at University Highlands" loading="lazy" /></div>
           <div><img src="/img/current_highpoint-greenline_pool_02.jpg" alt="Pool at Highpoint at the Greenline" loading="lazy" /></div>
           <div><img src="/img/current_twin-oaks_entry_02.jpg" alt="Brick entry at Twin Oaks Townhomes" loading="lazy" /></div>
           <div><img src="/img/current_chickasaw-greenline_exterior_01.jpg" alt="Chickasaw at the Greenline building exterior" loading="lazy" /></div>
@@ -72,7 +72,7 @@ export default function StrategyPage() {
 
       <section className="cta-band black damask"><div className="wrap">
         <div className="eyebrow light">Accredited investors</div><h2>See the strategy in our holdings.</h2>
-        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a><a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a></div>
+        <div className="btn-row"><a className="btn btn-silver" href="/investors#inquiry">Accredited Investor Inquiry</a>{SCHEDULE_ENABLED && <a className="btn btn-ghost" href={SCHEDULE_URL}>Schedule a Call</a>}</div>
         <p className="secondary-link"><a href="/current-holdings">See current holdings →</a></p>
       </div></section>
     </>

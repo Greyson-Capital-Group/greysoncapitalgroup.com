@@ -1,8 +1,9 @@
 import { SHOW_REVIEW_NOTES } from '@/data/site';
 import { isOn, isVisible, type FlagName } from '@/lib/content';
 
-/** Yellow review tag. Hidden on the launch build by CSS (.launch .note). */
+/** Yellow review tag. Not rendered at all on the launch build. */
 export function Confirm({ children = 'Confirm' }: { children?: React.ReactNode }) {
+  if (!SHOW_REVIEW_NOTES) return null;
   return <span className="note">{children}</span>;
 }
 
@@ -11,7 +12,7 @@ export function Confirm({ children = 'Confirm' }: { children?: React.ReactNode }
  * can supply/decide), COUNSEL (securities counsel), SUPPLY, CONFIRM. Hidden on the launch build.
  */
 export function Tag({ kind, children }: { kind?: string; children?: React.ReactNode }) {
-  if (!kind) return null;
+  if (!kind || !SHOW_REVIEW_NOTES) return null;
   const k = kind.split(/[ +]/)[0].toLowerCase();
   const label = kind === 'DRAFT' ? 'DRAFT · Justin to read' : kind;
   return <span className={`note note-${k}`}>{label}{children ? <> — {children}</> : null}</span>;
