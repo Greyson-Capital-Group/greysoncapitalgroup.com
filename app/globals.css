@@ -385,3 +385,5 @@ code{font-size:.9em;background:#f1efe6;padding:1px 4px}
 @media (max-width:760px){.team > .person:only-child{display:block}}
 .team > .person:only-child > h3{margin-top:0}
 .team > .person:only-child p{font-size:16px;max-width:680px}
+.legal-copy h3{margin:36px 0 10px;font-size:20px}
+.legal-copy p{margin:0 0 14px;line-height:1.7}

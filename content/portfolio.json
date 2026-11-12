@@ -260,7 +260,20 @@
           "photoSource": "Broker marketing photo (CBRE 2022 sale OM; Berkadia 2020 OM for Villas)"
         }
       ],
-      "photos": [],
+      "photos": [
+        {
+          "src": "/img/fl3-park-place.jpg",
+          "alt": "Pool and clubhouse at Park Place, Orange Park, Florida (Florida 3 Portfolio)"
+        },
+        {
+          "src": "/img/fl3-kings-tree.jpg",
+          "alt": "Kings Tree, Orange Park, Florida"
+        },
+        {
+          "src": "/img/fl3-villas-at-cedar-creek.jpg",
+          "alt": "Villas at Cedar Creek, Jacksonville, Florida"
+        }
+      ],
       "partsDescriptionTag": "SUPPLY"
     },
     {

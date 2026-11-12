@@ -1,4 +1,5 @@
 'use client';
+import { SHOW_REVIEW_NOTES } from '@/data/site';
 import { useState } from 'react';
 
 // Submissions go to Netlify Forms (free tier). Netlify detects the fields from the
@@ -61,7 +62,7 @@ export function InvestorForm() {
       <label>Phone<input className="field" type="tel" name="phone" autoComplete="tel" /></label>
       <label className="full">Investor type<Choice name="investorType" options={['Individual', 'Family office', 'Institution', 'Advisor / RIA']} /></label>
       <label className="full">Anything we should know<textarea className="field tall" name="notes" /></label>
-      <label className="full check"><input type="checkbox" name="accredited" required /> <span>I confirm I am an accredited investor as defined in Rule 501 of Regulation D. <span className="note note-counsel">COUNSEL — accreditation wording</span></span></label>
+      <label className="full check"><input type="checkbox" name="accredited" required /> <span>I confirm I am an accredited investor as defined in Rule 501 of Regulation D. {SHOW_REVIEW_NOTES && <span className="note note-counsel">COUNSEL — accreditation wording</span>}</span></label>
       <label className="full check"><input type="checkbox" name="notAnOffer" required /> <span>I understand this is not an offer to sell or a solicitation to buy any security.</span></label>
       <div className="full">
         <button type="submit" className="btn btn-silver" disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : 'Submit inquiry'}</button>
