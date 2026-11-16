@@ -82,8 +82,13 @@
       "market": "Whitehaven · Memphis, TN",
       "neighborhood": "Whitehaven",
       "summary": "222 townhomes in Whitehaven, Memphis, acquired September 2025 with a full renovation underway.",
-      "photos": [],
-      "photoNote": "Photos needed: the Lakeville listing photos are public scrapes and are not used. Multi-South originals requested.",
+      "photos": [
+        {
+          "src": "/img/current_lakeville_exterior_01.jpg",
+          "alt": "Renovated townhome buildings at Lakeville Townhomes in Whitehaven, Memphis"
+        }
+      ],
+      "photoSource": "Greyson site photo, Oct 30 2026 (Justin Richards Dropbox: Lakeville TH/! Construction/Photos, 2:38:14 PM)",
       "summaryTag": "DRAFT",
       "description": "Lakeville is a 222-unit townhome community in Whitehaven, Memphis, acquired in September 2025. We are executing a full renovation with the same hands-on construction and management approach we used at Twin Oaks.",
       "descriptionTag": "DRAFT"
